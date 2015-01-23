@@ -1,0 +1,2098 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+	<changeSet author="rverma" id="1">
+		<createTable tableName="ref_category">
+			<column name="categoryid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="code" type="VARCHAR(25)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="createdby" type="VARCHAR(25)" />
+			<column name="createdtime" type="TIMESTAMP" />
+			<column name="updatedby" type="VARCHAR(25)" />
+			<column name="updatedtime" type="TIMESTAMP" />
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="2">
+		<addPrimaryKey tableName="ref_category" constraintName="ref_category_pkey"
+			columnNames="categoryid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="3">
+		<createTable tableName="ref_locale">
+			<column name="localeid" type="INTEGER" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="localecode" type="VARCHAR(5)">
+				<constraints nullable="false" />
+			</column>
+			<column name="languagename" type="VARCHAR(25)">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdby" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="updateddate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedby" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="createddate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="4">
+		<addPrimaryKey tableName="ref_locale" constraintName="ref_locale_pk"
+			columnNames="localeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="6">
+		<createTable tableName="ref_attribute">
+			<column name="attributeid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdby" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="type" type="VARCHAR(10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createddate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedby" type="BIGINT" />
+			<column name="updateddate" type="TIMESTAMP" />
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="7">
+		<addPrimaryKey tableName="ref_attribute" constraintName="ref_attributes_pkey"
+			columnNames="attributeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="8">
+		<createTable tableName="ref_filter_attribute">
+			<column name="filterattributeid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="attributeid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="display_order" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="isactive" type="BOOLEAN">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="9">
+		<addPrimaryKey tableName="ref_filter_attribute"
+			constraintName="ref_filter_attribute_pkey" columnNames="filterattributeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="11">
+		<createTable tableName="ref_locale_attribute">
+			<column name="localeattributeid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="localeid" type="INTEGER">
+				<constraints nullable="false" />
+			</column>
+			<column name="value" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="attributeid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="12">
+		<addPrimaryKey tableName="ref_locale_attribute"
+			constraintName="ref_locale_attribute_pk" columnNames="localeattributeid" />
+	</changeSet>
+
+
+	<changeSet author="rverma" id="14">
+		<createTable tableName="ref_manufacturer">
+			<column name="manufacturerid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INTEGER">
+				<constraints nullable="false" />
+			</column>
+			<column name="code" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="skucode" type="VARCHAR(55)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createddate" type="TIMESTAMP" />
+			<column name="lastupdateddate" type="TIMESTAMP" />
+			<column name="createdby" type="BIGINT" />
+			<column name="updatedby" type="BIGINT" />
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="15">
+		<addPrimaryKey tableName="ref_manufacturer"
+			constraintName="ref_manufacturer_pkey" columnNames="manufacturerid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="16">
+		<createIndex tableName="ref_manufacturer" indexName="ref_manufacturer_description_key"
+			unique="true">
+			<column name="description" />
+		</createIndex>
+	</changeSet>
+
+	<changeSet author="rverma" id="17">
+		<createIndex tableName="ref_manufacturer" indexName="ref_manufacturer_skucode_key"
+			unique="true">
+			<column name="skucode" />
+		</createIndex>
+	</changeSet>
+
+	<changeSet author="rverma" id="18">
+		<createIndex tableName="ref_manufacturer" indexName="ix_manufacturer_code">
+			<column name="code" />
+		</createIndex>
+	</changeSet>
+
+	<changeSet author="rverma" id="19">
+		<createTable tableName="ref_program">
+			<column name="programid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="programname" type="VARCHAR(100)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="isactive" type="BOOLEAN">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="20">
+		<addPrimaryKey tableName="ref_program" constraintName="ref_program_pkey"
+			columnNames="programid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="21">
+		<createIndex tableName="ref_program" indexName="ref_program_programname_key"
+			unique="true">
+			<column name="programname" />
+		</createIndex>
+	</changeSet>
+
+	<changeSet author="rverma" id="22">
+		<createTable tableName="ref_prioritizationtype">
+			<column name="prioritizationtypeid" type="BIGINT"
+				autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="programid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="priority" type="BIGINT" />
+			<column name="attributeid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="23">
+		<addPrimaryKey tableName="ref_prioritizationtype"
+			constraintName="ref_prioritization_pkey" columnNames="prioritizationtypeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="24">
+		<createTable tableName="ref_prioritization_upload">
+			<column name="id" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="prioritizationtypeid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="uploadedby" type="VARCHAR(25)" />
+			<column name="uploadedtime" type="TIMESTAMP" />
+			<column name="updatedfile" type="BYTEA" />
+			<column name="status" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="25">
+		<addPrimaryKey tableName="ref_prioritization_upload"
+			constraintName="ref_prioritizationupload_pkey" columnNames="id" />
+	</changeSet>
+
+	<changeSet author="rverma" id="26">
+		<createTable tableName="ref_program_category">
+			<column name="programcategoryid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="programid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="categoryid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="27">
+		<addPrimaryKey tableName="ref_program_category"
+			constraintName="ref_programcateogry_pkey" columnNames="programcategoryid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="28">
+		<createTable tableName="ref_prioritization">
+			<column name="prioritizationid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="prioritizationtypeid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="programcategoryid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="value" type="VARCHAR(255)" />
+			<column name="ranking" type="BIGINT" />
+			<column name="active" type="BOOLEAN">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="29">
+		<addPrimaryKey tableName="ref_prioritization"
+			constraintName="ref_prioritizations_pkey" columnNames="prioritizationid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="30">
+		<createTable tableName="ref_search_attributes">
+			<column name="searchattributeid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="attributeid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="parentsearchattributeid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="display_order" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="values" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="isactive" type="BOOLEAN">
+				<constraints nullable="false" />
+			</column>
+			<column name="programcategoryid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="31">
+		<addPrimaryKey tableName="ref_search_attributes"
+			constraintName="ref_search_attributes_pkey" columnNames="searchattributeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="32">
+		<createTable tableName="ref_application">
+			<column name="applicationid" type="INTEGER" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="VARCHAR(25)">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="VARCHAR(25)">
+				<constraints nullable="false" />
+			</column>
+			<column name="programid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdby" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="updateddate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedby" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="createddate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="33">
+		<addPrimaryKey tableName="ref_application"
+			constraintName="applicationid" columnNames="applicationid" />
+	</changeSet>
+	<changeSet author="rverma" id="34">
+		<createSequence sequenceName="ref_application_applicationid_seq_1" />
+	</changeSet>
+
+	<changeSet author="rverma" id="35">
+		<createTable tableName="ref_application_locale">
+			<column name="applocaleid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="applicationid" type="INTEGER">
+				<constraints nullable="false" />
+			</column>
+			<column name="localeid" type="INTEGER">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="36">
+		<addPrimaryKey tableName="ref_application_locale"
+			constraintName="ref_application_locale_pk" columnNames="applocaleid" />
+	</changeSet>
+
+
+	<changeSet author="rverma" id="38">
+		<createTable tableName="ref_label">
+			<column name="labelid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="applocaleid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="labelname" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="value" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedby" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="updateddate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdby" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="createddate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="39">
+		<addPrimaryKey tableName="ref_label" constraintName="ref_label_pk"
+			columnNames="labelid" />
+	</changeSet>
+
+
+	<changeSet author="rverma" id="41">
+		<createTable tableName="ref_program_gen_attribute">
+			<column name="programgenattributeid" type="BIGINT"
+				autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="programid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="value" type="VARCHAR(255)" />
+			<column name="attributeid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="42">
+		<addPrimaryKey tableName="ref_program_gen_attribute"
+			constraintName="ref_program_attribute_pk_1" columnNames="programgenattributeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="44">
+		<createTable tableName="ref_manufacturermodel">
+			<column name="manufacturermodelid" type="BIGINT"
+				autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="modelnumber" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="modelcode" type="VARCHAR(255)" />
+			<column name="manufacturerid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="BIGINT">
+				<constraints nullable="true" />
+			</column>
+			<column name="noimage" type="BOOLEAN">
+				<constraints nullable="false" />
+			</column>
+			<column name="imageurl" type="VARCHAR(255)" />
+			<column name="imageversion" type="INTEGER">
+				<constraints nullable="false" />
+			</column>
+			<column name="product" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="generation" type="VARCHAR(10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdby" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="createddate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column name="lastupdateddate" type="TIMESTAMP" />
+			<column name="updatedby" type="BIGINT" />
+			<column name="version" type="INTEGER">
+				<constraints nullable="false" />
+			</column>
+			<column name="weight" type="VARCHAR(255)" />
+			<column name="fcccode" type="VARCHAR(255)" />
+			<column name="active" type="BOOLEAN">
+				<constraints nullable="false" />
+			</column>
+			<column name="batterytype" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="adjustmentremindertext" type="VARCHAR(1000)" />
+			<column name="identification_number" type="BIGINT" />
+			<column name="colors" type="VARCHAR(255)" />
+			<column name="operatingsystem" type="VARCHAR(1000)" />
+			<column name="operatingsystemversion" type="VARCHAR(1000)" />
+			<column name="capacity" type="VARCHAR(1000)" />
+			<column name="productclass" type="VARCHAR(1000)" />
+			<column name="productfamily" type="VARCHAR(1000)" />
+			<column name="lteenabled" type="BOOLEAN" />
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="45">
+		<addPrimaryKey tableName="ref_manufacturermodel"
+			constraintName="ref_manufacturermodel_bkp_pkey" columnNames="manufacturermodelid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="46">
+		<createIndex tableName="ref_manufacturermodel"
+			indexName="ref_manufacturermodel_modelcode_key" unique="true">
+			<column name="modelcode" />
+		</createIndex>
+	</changeSet>
+
+	<changeSet author="rverma" id="47">
+		<createIndex tableName="ref_manufacturermodel"
+			indexName="ix_manufacturermodel_modelnumber_hbm">
+			<column name="modelnumber" />
+		</createIndex>
+	</changeSet>
+
+	<changeSet author="rverma" id="48">
+		<createTable tableName="ref_program_manufacturer_model">
+			<column name="programmodelcatgid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="manufacturermodelid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="programcategoryid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="manufactureraliases" type="VARCHAR(255)" />
+			<column name="modelaliases" type="VARCHAR(1000)" />
+			<column name="version" type="INTEGER" />
+			<column name="carriersku" type="VARCHAR(225)" />
+			<column name="search_order" type="INTEGER" />
+			<column name="createdby" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="createddate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column name="lastupdateddate" type="TIMESTAMP" />
+			<column name="updatedby" type="BIGINT" />
+			<column name="carrier" type="VARCHAR(1000)">
+				<constraints nullable="false" />
+			</column>
+			<column name="modeltextsearch" type="TSVECTOR" />
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="49">
+		<addPrimaryKey tableName="ref_program_manufacturer_model"
+			constraintName="ref_programattribute_pkey" columnNames="programmodelcatgid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="50">
+		<createTable tableName="ref_program_model_attribute">
+			<column name="programattributeid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="programmodelcatgid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="attributeid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="value" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="51">
+		<addPrimaryKey tableName="ref_program_model_attribute"
+			constraintName="ref_program_attribute_pk" columnNames="programattributeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="53">
+		<createTable tableName="ref_modelattachment">
+			<column name="modelattachmentid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="manufacturermodelid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="attachmentid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="attachmenttype" type="VARCHAR(50)" />
+			<column name="version" type="INTEGER">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="54">
+		<addPrimaryKey tableName="ref_modelattachment"
+			constraintName="ref_modelattachment_pkey" columnNames="modelattachmentid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="55">
+		<createTable tableName="ref_carrier">
+			<column name="carrierid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="code" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="programid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="VARCHAR(1000)">
+				<constraints nullable="false" />
+			</column>
+			<column name="sortorder" type="INTEGER">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdby" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="createddate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column name="updateddate" type="TIMESTAMP" />
+			<column name="updatedby" type="BIGINT" />
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="56">
+		<addPrimaryKey tableName="ref_carrier" constraintName="ref_carrier_pkey"
+			columnNames="carrierid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="58">
+		<createTable tableName="ref_role">
+			<column name="roleid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INTEGER">
+				<constraints nullable="false" />
+			</column>
+			<column name="type" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="VARCHAR(1000)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="59">
+		<addPrimaryKey tableName="ref_role" constraintName="ref_role_pkey"
+			columnNames="roleid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="60">
+		<createIndex tableName="ref_role" indexName="ref_role_code_key"
+			unique="true">
+			<column name="type" />
+		</createIndex>
+	</changeSet>
+
+	<changeSet author="rverma" id="61">
+		<createTable tableName="fs_contact">
+			<column name="contactid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INTEGER">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdby" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="createddate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column name="lastupdateddate" type="TIMESTAMP" />
+			<column name="updatedby" type="BIGINT" />
+			<column name="secondaryphone" type="VARCHAR(15)" />
+			<column name="email" type="VARCHAR(255)" />
+			<column name="fax" type="VARCHAR(15)" />
+			<column name="primaryphone" type="VARCHAR(15)" />
+			<column name="firstname" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="lastname" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="middleinitial" type="VARCHAR(1)" />
+			<column name="contacttype" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="62">
+		<addPrimaryKey tableName="fs_contact" constraintName="fs_contact_pkey"
+			columnNames="contactid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="63">
+		<createIndex tableName="fs_contact" indexName="idx_contact_firstname">
+			<column name="lower((firstname)::text)" />
+		</createIndex>
+	</changeSet>
+
+	<changeSet author="rverma" id="64">
+		<createIndex tableName="fs_contact" indexName="idx_contact_lastname">
+			<column name="lower((lastname)::text)" />
+		</createIndex>
+	</changeSet>
+
+	<changeSet author="rverma" id="65">
+		<createTable tableName="fs_user">
+			<column name="userid" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="applicationid" type="INTEGER">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INTEGER">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdby" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="createddate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column name="lastupdateddate" type="TIMESTAMP" />
+			<column name="updatedby" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="active" type="BOOLEAN">
+				<constraints nullable="false" />
+			</column>
+			<column name="contactid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="lastlogindate" type="TIMESTAMP" />
+			<column name="username" type="VARCHAR(60)">
+				<constraints nullable="false" />
+			</column>
+			<column name="password" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="lastchangedpassworddate" type="TIMESTAMP" />
+			<column name="showpreferences" type="BOOLEAN"
+				defaultValueBoolean="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="timezone" type="VARCHAR(100)" />
+			<column name="failedloginattempts" type="INTEGER"
+				defaultValueNumeric="0" />
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="66">
+		<addPrimaryKey tableName="fs_user" constraintName="fs_user_pkey"
+			columnNames="userid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="67">
+		<createIndex tableName="fs_user" indexName="fs_user_username_key"
+			unique="true">
+			<column name="username" />
+		</createIndex>
+	</changeSet>
+
+	<changeSet author="rverma" id="68">
+		<createIndex tableName="fs_user" indexName="ix_user_username">
+			<column name="username" />
+		</createIndex>
+	</changeSet>
+
+	<changeSet author="rverma" id="69">
+		<createTable tableName="fs_user_role">
+			<column name="userid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="roleid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="rverma" id="70">
+		<addForeignKeyConstraint baseTableName="ref_program_category"
+			constraintName="ref_category_ref_program_category_fk"
+			baseColumnNames="categoryid" referencedTableName="ref_category"
+			referencedColumnNames="categoryid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="71">
+		<addForeignKeyConstraint baseTableName="ref_application_locale"
+			constraintName="ref_locale_ref_application_locale_fk"
+			baseColumnNames="localeid" referencedTableName="ref_locale"
+			referencedColumnNames="localeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="72">
+		<addForeignKeyConstraint baseTableName="ref_locale_attribute"
+			constraintName="ref_locale_ref_locale_attribute_fk" baseColumnNames="localeid"
+			referencedTableName="ref_locale" referencedColumnNames="localeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="73">
+		<addForeignKeyConstraint baseTableName="ref_locale_attribute"
+			constraintName="ref_attribute_ref_locale_attribute_fk"
+			baseColumnNames="attributeid" referencedTableName="ref_attribute"
+			referencedColumnNames="attributeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="74">
+		<addForeignKeyConstraint baseTableName="ref_prioritizationtype"
+			constraintName="ref_attribute_ref_prioritizationtype_fk"
+			baseColumnNames="attributeid" referencedTableName="ref_attribute"
+			referencedColumnNames="attributeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="75">
+		<addForeignKeyConstraint baseTableName="ref_program_gen_attribute"
+			constraintName="ref_attribute_ref_program_gen_attribute_fk"
+			baseColumnNames="attributeid" referencedTableName="ref_attribute"
+			referencedColumnNames="attributeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="76">
+		<addForeignKeyConstraint baseTableName="ref_search_attributes"
+			constraintName="ref_attribute_ref_search_attributes_fk"
+			baseColumnNames="attributeid" referencedTableName="ref_attribute"
+			referencedColumnNames="attributeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="77">
+		<addForeignKeyConstraint baseTableName="ref_filter_attribute"
+			constraintName="ref_attribute_ref_filter_attribute_fk"
+			baseColumnNames="attributeid" referencedTableName="ref_attribute"
+			referencedColumnNames="attributeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="78">
+		<addForeignKeyConstraint baseTableName="ref_program_model_attribute"
+			constraintName="ref_attribute_ref_program_model_attribute_fk"
+			baseColumnNames="attributeid" referencedTableName="ref_attribute"
+			referencedColumnNames="attributeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="79">
+		<addForeignKeyConstraint baseTableName="ref_manufacturermodel"
+			constraintName="fk_manufacturer_manufacturer_id" baseColumnNames="manufacturerid"
+			referencedTableName="ref_manufacturer" referencedColumnNames="manufacturerid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="80">
+		<addForeignKeyConstraint baseTableName="ref_carrier"
+			constraintName="ref_program_ref_carrier_fk" baseColumnNames="programid"
+			referencedTableName="ref_program" referencedColumnNames="programid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="81">
+		<addForeignKeyConstraint baseTableName="ref_application"
+			constraintName="ref_program_Application_fk" baseColumnNames="programid"
+			referencedTableName="ref_program" referencedColumnNames="programid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="82">
+		<addForeignKeyConstraint baseTableName="ref_program_category"
+			constraintName="ref_program_ref_program_category_fk" baseColumnNames="programid"
+			referencedTableName="ref_program" referencedColumnNames="programid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="83">
+		<addForeignKeyConstraint baseTableName="ref_program_gen_attribute"
+			constraintName="ref_program_ref_program_gen_attribute_fk"
+			baseColumnNames="programid" referencedTableName="ref_program"
+			referencedColumnNames="programid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="84">
+		<addForeignKeyConstraint baseTableName="ref_prioritizationtype"
+			constraintName="ref_program_ref_prioritizationtype_fk"
+			baseColumnNames="programid" referencedTableName="ref_program"
+			referencedColumnNames="programid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="85">
+		<addForeignKeyConstraint baseTableName="ref_prioritization"
+			constraintName="ref_prioritizationtype_ref_prioritization_fk"
+			baseColumnNames="prioritizationtypeid" referencedTableName="ref_prioritizationtype"
+			referencedColumnNames="prioritizationtypeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="86">
+		<addForeignKeyConstraint baseTableName="ref_prioritization_upload"
+			constraintName="ref_prioritizationtype_ref_prioritization_upload_fk"
+			baseColumnNames="prioritizationtypeid" referencedTableName="ref_prioritizationtype"
+			referencedColumnNames="prioritizationtypeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="87">
+		<addForeignKeyConstraint baseTableName="ref_program_manufacturer_model"
+			constraintName="ref_program_category_ref_program_model_fk"
+			baseColumnNames="programcategoryid" referencedTableName="ref_program_category"
+			referencedColumnNames="programcategoryid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="88">
+		<addForeignKeyConstraint baseTableName="ref_search_attributes"
+			constraintName="ref_program_category_ref_search_attributes_fk"
+			baseColumnNames="programcategoryid" referencedTableName="ref_program_category"
+			referencedColumnNames="programcategoryid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="89">
+		<addForeignKeyConstraint baseTableName="ref_prioritization"
+			constraintName="ref_program_category_ref_prioritization_fk"
+			baseColumnNames="programcategoryid" referencedTableName="ref_program_category"
+			referencedColumnNames="programcategoryid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="90">
+		<addForeignKeyConstraint baseTableName="ref_search_attributes"
+			constraintName="ref_search_attributes_ref_search_attributes_fk"
+			baseColumnNames="parentsearchattributeid" referencedTableName="ref_search_attributes"
+			referencedColumnNames="searchattributeid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="91">
+		<addForeignKeyConstraint baseTableName="ref_application_locale"
+			constraintName="ref_application_ref_application_locale_fk"
+			baseColumnNames="applicationid" referencedTableName="ref_application"
+			referencedColumnNames="applicationid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="92">
+		<addForeignKeyConstraint baseTableName="fs_user"
+			constraintName="ref_application_fs_user_fk" baseColumnNames="applicationid"
+			referencedTableName="ref_application" referencedColumnNames="applicationid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="93">
+		<addForeignKeyConstraint baseTableName="ref_label"
+			constraintName="ref_application_locale_ref_label_fk" baseColumnNames="applocaleid"
+			referencedTableName="ref_application_locale" referencedColumnNames="applocaleid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="94">
+		<addForeignKeyConstraint baseTableName="ref_manufacturermodel"
+			constraintName="ref_label_ref_manufacturermodel_fk" baseColumnNames="description"
+			referencedTableName="ref_label" referencedColumnNames="labelid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="95">
+		<addForeignKeyConstraint baseTableName="ref_program_gen_attribute"
+			constraintName="ref_label_ref_program_gen_attribute_fk"
+			baseColumnNames="description" referencedTableName="ref_label"
+			referencedColumnNames="labelid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="96">
+		<addForeignKeyConstraint baseTableName="ref_program_model_attribute"
+			constraintName="ref_label_ref_program_model_attribute_fk"
+			baseColumnNames="description" referencedTableName="ref_label"
+			referencedColumnNames="labelid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="97">
+		<addForeignKeyConstraint baseTableName="ref_modelattachment"
+			constraintName="fk_modelattachment_manufacturermodelid"
+			baseColumnNames="manufacturermodelid" referencedTableName="ref_manufacturermodel"
+			referencedColumnNames="manufacturermodelid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="98">
+		<addForeignKeyConstraint baseTableName="ref_program_manufacturer_model"
+			constraintName="ref_manufacturermodel_ref_program_mf_model_fk"
+			baseColumnNames="manufacturermodelid" referencedTableName="ref_manufacturermodel"
+			referencedColumnNames="manufacturermodelid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="99">
+		<addForeignKeyConstraint baseTableName="ref_program_model_attribute"
+			constraintName="ref_program_mf_model_ref_program_model_attribute_fk"
+			baseColumnNames="programmodelcatgid" referencedTableName="ref_program_manufacturer_model"
+			referencedColumnNames="programmodelcatgid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="100">
+		<addForeignKeyConstraint baseTableName="fs_user_role"
+			constraintName="fk_role_roleid" baseColumnNames="roleid"
+			referencedTableName="ref_role" referencedColumnNames="roleid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="101">
+		<addForeignKeyConstraint baseTableName="fs_user"
+			constraintName="fs_contact_fs_user_fk" baseColumnNames="contactid"
+			referencedTableName="fs_contact" referencedColumnNames="contactid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="102">
+		<addForeignKeyConstraint baseTableName="fs_user"
+			constraintName="fk_user_userid_updatedby" baseColumnNames="updatedby"
+			referencedTableName="fs_user" referencedColumnNames="userid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="103">
+		<addForeignKeyConstraint baseTableName="fs_user"
+			constraintName="fk_user_userid_createdby" baseColumnNames="createdby"
+			referencedTableName="fs_user" referencedColumnNames="userid" />
+	</changeSet>
+
+	<changeSet author="rverma" id="104">
+		<addForeignKeyConstraint baseTableName="fs_user_role"
+			constraintName="fkaf011f785e7b21da" baseColumnNames="userid"
+			referencedTableName="fs_user" referencedColumnNames="userid" />
+	</changeSet>
+	<changeSet author="rverma" id="105">
+		<sql>     
+    <![CDATA[  
+			alter table ref_application  alter column updateddate drop not null;
+      		alter table ref_application  alter column updatedby drop not null;
+        	]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="106">
+		<sql>     
+	    <![CDATA[  
+				alter table fs_user  alter column lastupdateddate drop not null;
+	      		alter table fs_user  alter column updatedby drop not null;
+	        	]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="107">
+		<createTable tableName="fs_attachment">
+			<column name="attachmentid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="attachment" type="BYTEA" />
+			<column name="version" type="INTEGER">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="108">
+		<addPrimaryKey tableName="fs_attachment" constraintName="fs_attachment_pkey"
+			columnNames="attachmentid" />
+	</changeSet>
+<changeSet author="bbansal" id="110" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from pg_proc where
+				proname = 'get_attribute_values';
+			</sqlCheck>
+		</preConditions>
+		<comment>CREATE PROCEDURE FOR VALUE SEARCH</comment>
+		<createProcedure>
+			CREATE OR REPLACE FUNCTION
+			get_attribute_values(attrbute bigint,program bigint,category
+			character varying(255))
+			RETURNS setof character varying AS
+			$BODY$
+			DECLARE
+			record_v record;
+			query text;
+			BEGIN
+			query:= 'select distinct (
+			select case when name = ''MANUFACTURER'' then m.code::varchar
+			when
+			name = ''MODELCODE'' then mm.modelcode::varchar
+			when name
+			=''PRODUCT''
+			then
+			mm.product::varchar end as ott from ref_attribute where
+			attributeid= '''||attrbute || ''') from
+			ref_program_manufacturer_model rpm
+			join ref_manufacturermodel mm
+			on
+			(rpm.manufacturermodelid =mm.manufacturermodelid )
+			join
+			ref_manufacturer m on (m.manufacturerid=mm.manufacturerid)
+			where
+			rpm.programcategoryid = (select programcategoryid from
+			ref_program_category where programid = ''' || program || ''' and
+			categoryid = (select categoryid from ref_category where
+			code = ''' ||
+			category || '''))';
+			FOR record_v IN EXECUTE
+			query LOOP
+			return next
+			record_v.ott;
+			END LOOP;
+			return;
+			END;
+			$BODY$ LANGUAGE plpgsql VOLATILE
+			COST 100;
+
+			ALTER FUNCTION get_attribute_values(bigint,bigint,character
+			varying(255))
+			OWNER TO admin;
+			GRANT EXECUTE ON FUNCTION
+			get_attribute_values(bigint,bigint,character varying(255)) TO admin;
+			GRANT EXECUTE ON FUNCTION
+			get_attribute_values(bigint,bigint,character varying(255)) TO app;
+			GRANT EXECUTE ON
+			FUNCTION get_attribute_values(bigint,bigint,character
+			varying(255)) TO developer;
+		</createProcedure>
+	</changeSet>
+	<changeSet author="rverma" id="111">
+		<addForeignKeyConstraint baseTableName="ref_modelattachment"
+			constraintName="fk_modelattachment_attachmentid" baseColumnNames="attachmentid"
+			referencedTableName="fs_attachment" referencedColumnNames="attachmentid" />
+	</changeSet>
+	<changeSet author="rverma" id="113">
+		<sql>     
+	    <![CDATA[  
+				alter table ref_locale alter column updateddate drop  not null;
+				alter table ref_locale alter column updatedby drop  not null;
+	        ]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="114">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="1">
+				select count(*) from pg_proc where
+				proname = 'refreshmodelsearchtext';
+			</sqlCheck>
+		</preConditions>
+		<sql>
+			<![CDATA[
+			DROP FUNCTION refreshmodelsearchtext(bigint, timestamp with time zone);
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="116">
+		<sql>     
+	    <![CDATA[  
+				alter table ref_label alter column updateddate drop  not null;
+				alter table ref_label alter column updatedby drop  not null;
+	        ]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="116.1">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				SELECT count(*) FROM
+				information_schema.columns WHERE
+				table_name='ref_label' and
+				column_name='code';
+			</sqlCheck>
+		</preConditions>
+		<sql>     
+	    <![CDATA[  
+				alter table ref_label add column code varchar(255);
+	        ]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="116.3">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="1">
+				SELECT count(*) FROM
+				information_schema.columns WHERE
+				table_name='ref_label' and
+				column_name='labelname';
+			</sqlCheck>
+		</preConditions>
+		<sql>     
+	    <![CDATA[  
+				alter table ref_label drop column labelname;
+	        ]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="117">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				SELECT count(*) FROM
+				information_schema.columns WHERE
+				table_name='ref_program_gen_attribute' and
+				column_name='applicationid';
+			</sqlCheck>
+		</preConditions>
+		<comment>Add column application id</comment>
+		<sql>     
+	    <![CDATA[  
+				alter table ref_program_gen_attribute add column applicationid bigint;
+				alter table ref_program_gen_attribute add constraint ref_program_gen_attribute_application_fkey foreign key(applicationid) 
+					references ref_application(applicationid) MATCH SIMPLE
+      				ON UPDATE CASCADE ON DELETE CASCADE;
+
+	        ]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="118">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				SELECT count(*) FROM
+				information_schema.columns WHERE
+				table_name='ref_program_gen_attribute' and column_name='userid';
+			</sqlCheck>
+		</preConditions>
+		<comment>Add column userid</comment>
+		<sql>     
+	    <![CDATA[  
+				alter table ref_program_gen_attribute add column userid bigint;
+				alter table ref_program_gen_attribute add constraint ref_program_gen_attribute_user_fkey foreign key(applicationid)
+					references ref_application(applicationid) MATCH SIMPLE
+      				ON UPDATE CASCADE ON DELETE CASCADE;
+
+	        ]]>
+		</sql>
+	</changeSet>
+	<changeSet author="prasingh" id="116">
+		<preConditions>
+			<tableExists tableName="ref_search_attributes" />
+		</preConditions>
+		<dropTable tableName="ref_search_attributes" />
+		<createTable tableName="ref_search_attributes">
+			<column name="searchattributeid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="attributeid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="parentsearchattributeid" type="BIGINT">
+				<constraints nullable="true" />
+			</column>
+			<column name="display_order" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="code" type="VARCHAR(250)">
+				<constraints nullable="false" />
+			</column>
+			<column name="isactive" type="BOOLEAN">
+				<constraints nullable="false" />
+			</column>
+			<column name="programcategoryid" type="BIGINT">
+				<constraints nullable="true" />
+			</column>
+			<column name="help_text" type="VARCHAR(1000)">
+				<constraints nullable="true" />
+			</column>
+			<column name="label" type="VARCHAR(1000)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addPrimaryKey tableName="ref_search_attributes"
+			constraintName="ref_search_attributes_pkey" columnNames="searchattributeid" />
+		<addForeignKeyConstraint baseTableName="ref_search_attributes"
+			constraintName="ref_attribute_ref_search_attributes_fk"
+			baseColumnNames="attributeid" referencedTableName="ref_attribute"
+			referencedColumnNames="attributeid" />
+		<addForeignKeyConstraint baseTableName="ref_search_attributes"
+			constraintName="ref_program_category_ref_search_attributes_fk"
+			baseColumnNames="programcategoryid" referencedTableName="ref_program_category"
+			referencedColumnNames="programcategoryid" />
+		<addForeignKeyConstraint baseTableName="ref_search_attributes"
+			constraintName="ref_search_attributes_ref_search_attributes_fk"
+			baseColumnNames="parentsearchattributeid" referencedTableName="ref_search_attributes"
+			referencedColumnNames="searchattributeid" />
+		<createSequence sequenceName="ref_search_attributes_seq" />
+	</changeSet>
+
+	<changeSet author="prasingh" id="117">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="ref_modelalias" />
+			</not>
+		</preConditions>
+		<sql>
+	 <![CDATA[ 
+		CREATE TABLE ref_modelalias
+		(
+		  modelaliasid bigint NOT NULL,
+		  version integer NOT NULL,
+		  programmodelcatgid bigint NOT NULL,
+		  modelnumber character varying(255) NOT NULL,
+		  isprimary boolean NOT NULL,
+		  createddate timestamp with time zone DEFAULT now(),
+		  lastupdateddate timestamp with time zone,
+		  CONSTRAINT ref_modelalias_pkey PRIMARY KEY (modelaliasid),
+		  CONSTRAINT fk_program_manufacturermodel_manufacturermodelid FOREIGN KEY (programmodelcatgid)
+		      REFERENCES ref_program_manufacturer_model (programmodelcatgid) MATCH SIMPLE
+		      ON UPDATE NO ACTION ON DELETE NO ACTION
+		)
+		WITH (
+		  OIDS=FALSE
+		);
+		ALTER TABLE ref_modelalias
+		  OWNER TO postgres;
+		  ]]>
+		</sql>
+	</changeSet>
+	<changeSet id="118" author="prasingh">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<indexExists indexName="ix_modelalias_modelnumber" />
+			</not>
+		</preConditions>
+		<sql>
+	 <![CDATA[ 
+		CREATE INDEX ix_modelalias_modelnumber
+		ON ref_modelalias
+		USING btree
+		(modelnumber COLLATE pg_catalog."default");
+		]]>
+		</sql>
+	</changeSet>
+
+	<changeSet id="119" author="prasingh">
+		<createProcedure>
+	 <![CDATA[ 
+		CREATE OR REPLACE FUNCTION update_lastupdatedate_modelalias()
+		  RETURNS trigger AS
+		$BODY$ 
+			BEGIN 
+				IF(coalesce(OLD.lastupdateddate,'1900-01-01') = coalesce(NEW.lastupdateddate,'1900-01-01')) THEN 
+						NEW.lastupdateddate = now(); 
+				END IF; 
+				RETURN NEW; 
+			END;
+		$BODY$
+		  LANGUAGE plpgsql VOLATILE
+		  COST 100;
+		ALTER FUNCTION update_lastupdatedate_modelalias()
+		  OWNER TO postgres;
+		]]>
+		</createProcedure>
+	</changeSet>
+	<changeSet id="120" author="prasingh">
+		<sql>
+	 <![CDATA[ 
+		CREATE TRIGGER trigger_update_modelalias
+		  BEFORE UPDATE
+		  ON ref_modelalias
+		  FOR EACH ROW
+		  EXECUTE PROCEDURE update_lastupdatedate_modelalias();
+		]]>
+		</sql>
+	</changeSet>
+	<changeSet id="121" author="praisngh">
+		<createProcedure>
+	 <![CDATA[  
+		CREATE OR REPLACE FUNCTION getmodelalias(modelid bigint)
+		RETURNS character varying AS
+		$BODY$
+		DECLARE
+		aliases character varying := null;
+		aliasRec RECORD;
+		BEGIN
+		for aliasRec in select * from ref_modelalias where programmodelcatgid =
+		modelid and "isprimary" = false loop
+		if aliases is null THEN
+		aliases := aliasRec.modelnumber;
+		else
+		aliases := aliases || ',' || aliasRec.modelnumber;
+		end if;
+		end loop;
+		return aliases;
+		END;
+		$BODY$
+		LANGUAGE plpgsql VOLATILE
+		COST 100;
+		ALTER FUNCTION getmodelalias(bigint)
+		OWNER TO postgres;
+		]]>
+		</createProcedure>
+	</changeSet>
+	<changeSet id="123" author="prasingh">
+		<createProcedure>
+		 <![CDATA[  
+		CREATE OR REPLACE FUNCTION update_modelaliassearch()
+		RETURNS trigger AS
+		$BODY$
+		DECLARE
+		BEGIN
+		IF(TG_OP = 'DELETE') THEN
+		IF (OLD.isprimary <> true) THEN
+		execute refreshmodelsearchtext(OLD.manufacturermodelid);
+		END IF;
+		RETURN OLD;
+		ELSE
+		IF (NEW.isprimary <> true) THEN
+		execute refreshmodelsearchtext(NEW.manufacturermodelid);
+		END IF;
+		RETURN NEW;
+		END IF;
+		RETURN NULL;
+		END;
+		$BODY$
+		LANGUAGE plpgsql VOLATILE
+		COST 100;
+		ALTER FUNCTION update_modelaliassearch()
+		OWNER TO postgres;
+		]]>
+		</createProcedure>
+	</changeSet>
+	<changeSet id="124" author="prasingh">
+		<createProcedure>
+	<![CDATA[  
+		CREATE TRIGGER trigger_update_modelsearch
+		  AFTER INSERT OR UPDATE OR DELETE
+		  ON ref_modelalias
+		  FOR EACH ROW
+		  EXECUTE PROCEDURE update_modelaliassearch();
+		  
+		  
+		CREATE OR REPLACE FUNCTION update_modelsearch()
+		  RETURNS TRIGGER AS
+		$BODY$
+							    DECLARE
+							    manufacturer character varying(255);
+							    displayalias  character varying(2000);
+							    attributevalues character varying (255);
+							    searchtokens character varying(4000);
+							    BEGIN
+							        IF (TG_OP = 'INSERT') THEN
+							           PERFORM  refreshmodelsearchtext(NEW.manufacturermodelid);
+							        ELSEIF (TG_OP = 'UPDATE') THEN
+									IF ((COALESCE(NEW.manufactureraliases,'') <> COALESCE(OLD.manufactureraliases, '')) 
+										OR (COALESCE(NEW.programcategoryid, -1) <> COALESCE(OLD.programcategoryid, -1)) OR (COALESCE(NEW.manufacturermodelid, -1) <> COALESCE(OLD.manufacturermodelid,-1)) OR (COALESCE(NEW.modelaliases,'') <> COALESCE(OLD.modelaliases,''))) Then
+									 PERFORM  refreshmodelsearchtext(NEW.manufacturermodelid);
+									END IF;
+							       END IF;
+							       RETURN NEW;
+							    END;
+							$BODY$
+		  LANGUAGE plpgsql VOLATILE
+		  COST 100;
+		ALTER FUNCTION update_modelsearch() OWNER TO "admin";
+		GRANT EXECUTE ON FUNCTION update_modelsearch() TO "admin";
+		GRANT EXECUTE ON FUNCTION update_modelsearch() TO app;
+		GRANT EXECUTE ON FUNCTION update_modelsearch() TO developer;
+		GRANT EXECUTE ON FUNCTION update_modelsearch() TO report;
+		]]>
+		</createProcedure>
+	</changeSet>
+	<changeSet id="125" author="prasingh">
+		<createProcedure>
+		<![CDATA[  
+		CREATE TRIGGER trigger_update_modelsearch
+		After INSERT OR UPDATE
+		ON ref_program_manufacturer_model
+		FOR EACH ROW
+		EXECUTE PROCEDURE update_modelsearch();
+		]]>
+		</createProcedure>
+	</changeSet>
+	<changeSet author="rverma" id="126">
+		<sql>     
+    <![CDATA[  
+			alter table ref_search_attributes drop column parentsearchattributeid;
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="127">
+		<sql>     
+    <![CDATA[  
+			ALTER TABLE ref_program_manufacturer_model ALTER COLUMN search_order TYPE bigint;				
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="128">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="2">
+				SELECT count(*) FROM information_schema.columns WHERE table_name  = 'ref_carrier' and column_name in ('sortorder','programid');
+			</sqlCheck>
+		</preConditions>
+		<sql>     
+    <![CDATA[  
+			alter table ref_carrier drop column programid;
+			alter table ref_carrier drop column sortorder;
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="129">
+		<createTable tableName="ref_program_carrier">
+			<column name="programid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="carrierid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="search_order" type="INTEGER" />
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="130">
+		<addForeignKeyConstraint baseTableName="ref_program_carrier"
+			constraintName="ref_carrier_ref_program_carrier_fk" baseColumnNames="carrierid"
+			referencedTableName="ref_carrier" referencedColumnNames="carrierid" />
+	</changeSet>
+	<changeSet author="rverma" id="131">
+		<addForeignKeyConstraint baseTableName="ref_program_carrier"
+			constraintName="ref_program_ref_program_carrier_fk" baseColumnNames="programid"
+			referencedTableName="ref_program" referencedColumnNames="programid" />
+	</changeSet>
+	<changeSet author="rverma" id="132">
+		<sql>     
+    	<![CDATA[  
+			alter table ref_program_manufacturer_model drop column carrier;
+			alter table ref_program_manufacturer_model add column carrier text[];
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="135">
+		<sql>     
+    	<![CDATA[  
+			CREATE EXTENSION hstore;
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="136" author="rverma">
+		<createProcedure>
+	<![CDATA[
+		CREATE OR REPLACE FUNCTION get_filters(filters hstore) 
+			RETURNS  text AS
+			$BODY$
+			DECLARE
+				r record;
+				query_filter text:='';
+			BEGIN
+				FOR r IN SELECT (each(filters)).* 
+				LOOP
+				    IF (r.key ILIKE 'CARRIER') THEN
+					query_filter:= query_filter||' AND '''||r.value||''' = ANY (programManufacturerModel.carrier)';
+				    ELSEIF (r.key ILIKE 'PRODUCTFAMILY') THEN	
+					query_filter:= query_filter||' AND manufacturermodel.productfamily ilike '''||r.value||'''' ;
+				    ELSEIF (r.key ILIKE 'MANUFACTURER') THEN	
+					query_filter:= query_filter||' AND manufacturer.description ilike '''||r.value||'''';
+				    ELSEIF (r.key ILIKE 'PRODUCT') THEN	
+					query_filter:= query_filter||' AND manufacturermodel.product ilike '''||r.value||'''';		
+				    END IF;
+				END LOOP;
+				RETURN query_filter;
+			END
+			$BODY$
+			LANGUAGE plpgsql  VOLATILE;
+		]]>
+		</createProcedure>
+	</changeSet>
+	<changeSet id="141" author="rverma" runOnChange="true">
+		<comment>Add Exception to stored proc</comment>
+		<createProcedure>
+	 <![CDATA[  
+		CREATE OR REPLACE FUNCTION show_feature_search_attributes(programcategoryid_v bigint, attribute_v character varying, filters hstore)
+			RETURNS SETOF character varying as
+			$body$
+				DECLARE
+				  record_v RECORD;
+				  manufacturerdelta bigint:=10000000;
+				  productfamilydelta bigint:=10000;
+				  CODE_FILTER text;
+				  LABEL_FILTER text; 
+				  query_filters text:='';
+				  query text; 
+			   BEGIN
+				
+				  IF(filters is not null) THEN
+					  query_filters :=(select get_filters(filters));
+				  END IF;
+				  IF (attribute_v ILIKE 'CARRIER') THEN
+						  query = 'SELECT c.code as code, c.description as label from ref_carrier c join ref_program_carrier pc on (c.carrierid=pc.carrierid)join ref_program p on (p.programid= 
+							  (select programid from ref_program_category  where programcategoryid ='||programcategoryid_v||'))
+							  where c.description in (select distinct(trim(unnest(carrier))) from ref_program_manufacturer_model programManufacturerModel 
+							  join ref_manufacturermodel manufacturermodel on (programManufacturerModel.manufacturerModelid =  manufacturermodel.manufacturerModelid)
+							  join ref_manufacturer manufacturer on (manufacturermodel.manufacturerid =  manufacturer.manufacturerid) '||query_filters||')
+							  order by pc.search_order';
+				  ELSE 
+				IF (attribute_v ILIKE 'MANUFACTURER') THEN
+					CODE_FILTER = 'manufacturer.code';
+					LABEL_FILTER = 'manufacturer.description'; 
+				ELSEIF (attribute_v ILIKE 'PRODUCTFAMILY') THEN
+					CODE_FILTER = 'manufacturermodel.productfamily';
+							LABEL_FILTER = 'manufacturermodel.productfamily'; 
+				ELSEIF (attribute_v ILIKE 'PRODUCT') THEN
+					CODE_FILTER = 'manufacturermodel.product';
+					LABEL_FILTER = 'manufacturermodel.product'; 
+				END IF;
+				   -- generic query which can provide any filters  whode code and label is provided 
+				   query ='select '||CODE_FILTER||' as code,'||LABEL_FILTER||' as label from ref_program_manufacturer_model programManufacturerModel
+							  join ref_manufacturermodel manufacturermodel on (programManufacturerModel.manufacturerModelid =  manufacturermodel.manufacturerModelid)
+							  join ref_manufacturer manufacturer on (manufacturermodel.manufacturerid =  manufacturer.manufacturerid)
+							  where programManufacturerModel.programCategoryid ='||programcategoryid_v||' AND trim('||CODE_FILTER||')!='''' '||query_filters||'
+							  GROUP BY '||CODE_FILTER||','||LABEL_FILTER||'
+							  ORDER BY min(mod(programManufacturerModel.search_Order,'||manufacturerdelta||')),'||LABEL_FILTER||','||CODE_FILTER||'';
+				  END IF; 
+				  IF(query is null and LABEL_FILTER is null) THEN
+						  RAISE EXCEPTION USING 
+						  ERRCODE = '50001',
+						  message =  'FilterNotFoundException' ,
+						  HINT = 'Nonexistent FILTER --> '|| attribute_v  ;
+				  END IF;
+				  FOR record_v IN EXECUTE query
+				  LOOP
+					   return next record_v.label;
+				  END LOOP;
+				  return;
+			  END;
+			$body$
+			LANGUAGE plpgsql VOLATILE
+  		]]>
+		</createProcedure>
+	</changeSet>
+	<changeSet author="bbansal" id="142.2" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="1">
+				select count(*) from pg_proc where proname = 'get_attribute_values';
+			</sqlCheck>
+		</preConditions>
+		<comment>CREATE AND DROP PROCEDURE FOR VALUE SEARCH</comment>
+		<createProcedure>
+			CREATE OR REPLACE FUNCTION get_attribute_values(attrbute bigint, program bigint, category character varying)
+			  RETURNS SETOF character varying AS
+			$BODY$
+			            DECLARE
+			            record_v record;
+			            query text;
+			            BEGIN
+			            query:= 'select distinct ( select case when name = ''MANUFACTURER'' then m.code::varchar
+			            when name = ''MODELCODE'' then mm.modelcode::varchar
+			            when name
+			            =''PRODUCTFAMILY'' then
+			            mm.productfamily::varchar end as ott from ref_attribute where attributeid= '''||attrbute || ''') from ref_program_manufacturer_model rpm
+			            join ref_manufacturermodel mm
+			            on
+			            (rpm.manufacturermodelid =mm.manufacturermodelid )
+			            join ref_manufacturer m on (m.manufacturerid=mm.manufacturerid) where rpm.programcategoryid = (select programcategoryid from
+			                ref_program_category where programid = ''' || program || '''';
+			            IF(category=null or category='') THEN
+			                 query:= query|| ' and categoryid = (select categoryid from ref_category where
+			                code = ''' || category || '''))';
+			                        ELSE query:= query || ')';
+			                END IF;
+			            FOR record_v IN EXECUTE
+			            query LOOP
+			            return next record_v.ott;
+			            END LOOP;
+			            return;
+			            END;
+			            $BODY$
+			  LANGUAGE plpgsql VOLATILE
+			  COST 100
+			  ROWS 1000;
+			ALTER FUNCTION get_attribute_values(bigint,bigint,character varying(255))
+			OWNER TO admin;
+			GRANT EXECUTE ON FUNCTION get_attribute_values(bigint,bigint,character varying(255)) TO admin;
+			GRANT EXECUTE ON FUNCTION get_attribute_values(bigint,bigint,character varying(255)) TO app;
+			GRANT EXECUTE ON
+			FUNCTION get_attribute_values(bigint,bigint,character varying(255)) TO developer;
+		</createProcedure>
+	</changeSet>
+	<changeSet author="bbansal" id="143" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				SELECT count(*) FROM information_schema.columns WHERE table_name='ref_prioritization_upload' and column_name='deleted';
+			</sqlCheck>
+		</preConditions>
+		<comment>Add column deleted to ref_prioritization_upload</comment>
+		<sql>     
+	    <![CDATA[  
+				alter table ref_prioritization_upload add column deleted smallint default 0;
+	        ]]>
+		</sql>
+	</changeSet>
+		<changeSet author="rverma" id="144" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="1">
+				select count(*) from pg_proc where proname='refreshmodelsearchtext' and  proargnames  ='{programid_v,lastrun}';
+			</sqlCheck>
+		</preConditions>
+		<comment>CREATE AND DROP PROCEDURE FOR VALUE SEARCH</comment>
+		<createProcedure>
+		  <![CDATA[  
+			DROP FUNCTION refreshmodelsearchtext(BIGINT, timestamp with time zone);
+		CREATE OR REPLACE FUNCTION refreshmodelsearchtext(programid_v bigint, lastrun timestamp with time zone)
+                        RETURNS integer AS
+                        $BODY$
+			 DECLARE   
+				TOTAL bigint := 0;
+				TEMP_V TIMESTAMP :=(select coalesce(max(uploadedtime),now() - INTERVAL '1 day') from ref_prioritization_upload);
+				query text;
+				record_v record;
+				BEGIN              
+				IF(TEMP_V::DATE < LASTRUN::DATE) then
+					RETURN 0;
+				ELSEif (TEMP_V::DATE >= LASTRUN::DATE) then
+				query := 'SELECT pm.programmodelcatgid as programmodelcatgid,
+				COALESCE(rp1.ranking,9)*1000000+COALESCE(rp1.ranking,9)*10000+COALESCE(rp2.ranking,9)*1 as orders
+			        FROM ref_program_manufacturer_model  pm join  ref_manufacturermodel mm on (pm.manufacturermodelid=mm.manufacturermodelid)  and  pm.programcategoryid=(select pc.programcategoryid from ref_program_category  pc where pc.programid='||programid_v||')
+				join ref_manufacturer rm ON (mm.manufacturerid = rm.manufacturerid)
+				left outer join  ref_prioritization  rp1 on (rp1.value = rm.code and rp1.prioritizationtypeid=(select ppt.prioritizationtypeid from ref_prioritizationtype ppt  join ref_attribute a on (a.attributeid=ppt.attributeid and a.name=''MANUFACTURER'' and ppt.programid='||programid_v||')) and rp1.active=''true'')
+				left outer join  ref_prioritization  rp2 on (rp2.value = mm.productfamily and rp2.prioritizationtypeid=(select prioritizationtypeid from ref_prioritizationtype ppt  join ref_attribute a on (a.attributeid=ppt.attributeid and a.name=''PRODUCTFAMILY'' and ppt.programid='||programid_v||')) and rp2.active=''true'')
+				left outer join  ref_prioritization  rp3 on (rp3.value = mm.modelcode and rp3.prioritizationtypeid=(select prioritizationtypeid from ref_prioritizationtype  ppt  join ref_attribute a on (a.attributeid=ppt.attributeid and a.name=''MODELCODE'' and ppt.programid='||programid_v||')) and rp3.active=''true'')';
+				FOR record_v IN EXECUTE query LOOP
+					update ref_program_manufacturer_model set search_order =  record_v.orders where programmodelcatgid=record_v.programmodelcatgid;
+					--RAISE INFO '%     %', record_v.orders, record_v.programmodelcatgid; 
+					TOTAL := TOTAL+1;
+				END LOOP;
+				RETURN TOTAL;
+								
+				END IF;	
+			 END;
+		$BODY$
+  		LANGUAGE plpgsql VOLATILE
+  		COST 100;
+		ALTER FUNCTION refreshmodelsearchtext(bigint, timestamp with time zone)
+  		OWNER TO postgres;
+		 ]]>
+			
+		</createProcedure>
+	</changeSet>
+	<changeSet author="rverma" id="145">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="1">
+				SELECT count(*) FROM
+				information_schema.columns WHERE
+				table_name='ref_program_gen_attribute' and column_name='userid';
+			</sqlCheck>
+		</preConditions>
+		<comment>Add column userid</comment>
+		<sql>     
+	    <![CDATA[  
+				alter table ref_program_gen_attribute drop column userid ;
+	        ]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="146">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="1">
+				SELECT count(*) FROM
+				information_schema.columns WHERE
+				table_name='ref_program_gen_attribute' and
+				column_name='applicationid';
+			</sqlCheck>
+		</preConditions>
+		<comment>Add column userid</comment>
+		<sql>     
+	    <![CDATA[  
+				alter table ref_program_gen_attribute drop column applicationid ;
+	        ]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="147">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				SELECT count(*) FROM
+				information_schema.columns WHERE
+				table_name='ref_program_gen_attribute' and column_name='sortorder';
+			</sqlCheck>
+		</preConditions>
+		<comment>Add column userid</comment>
+		<sql>     
+	    <![CDATA[  
+				alter table ref_program_gen_attribute add column sortorder bigint ;
+	        ]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="148">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				SELECT count(*) FROM
+				information_schema.columns WHERE
+				table_name='ref_program_gen_attribute' and
+				column_name='ismandatory';
+			</sqlCheck>
+		</preConditions>
+		<comment>Add column userid</comment>
+		<sql>     
+	    <![CDATA[  
+				alter table ref_program_gen_attribute  add column ismandatory boolean;	        
+				]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="149" runOnChange="true">
+		<comment>CREATE AN REPLACE PROCEDURE FOR ADDING LOCALIZED LABEL</comment>
+		<createProcedure>
+		  <![CDATA[  
+			CREATE OR REPLACE FUNCTION add_ref_label(p_application character varying, p_localecode character varying, p_code character varying,  p_translation character varying)
+			  RETURNS text AS
+			       $BODY$
+						DECLARE
+							V_REF_LABEL_CODE text;
+						    V_APPLOCALEID bigint;
+						BEGIN
+							
+							    V_REF_LABEL_CODE := p_code;
+							    V_APPLOCALEID  :=(select  al.applocaleid from ref_application_locale al join ref_application a on (a.applicationid=al.applicationid) join ref_locale l on (l.localeid=al.localeid)
+												  where a.name=p_application and l.localecode=p_localecode);
+									
+								select code into V_REF_LABEL_CODE from ref_label where applocaleid = V_APPLOCALEID and code = p_code;
+								IF not found then 
+									insert into ref_label(applocaleid,code,value,createdby,createddate) values (V_APPLOCALEID,p_code,p_translation,1,now());
+									V_REF_LABEL_CODE := p_code;
+								ELSEIF found then
+									update ref_label set value = p_translation where applocaleid = V_APPLOCALEID and code = p_code;
+								END IF;
+							
+							RETURN V_REF_LABEL_CODE;
+						END
+				$BODY$
+			  LANGUAGE plpgsql VOLATILE
+			  COST 100;
+		 ]]>
+			
+		</createProcedure>
+	</changeSet>
+	<changeSet author="rverma" id="150">
+		<sql>     
+    <![CDATA[  
+			ALTER TABLE ref_label alter column value TYPE varchar(1000);				
+			]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet author="mkamboj" id="119">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				SELECT count(*) FROM
+				information_schema.columns WHERE
+				table_name='ref_program_gen_attribute' and column_name='ishidden';
+			</sqlCheck>
+		</preConditions>
+		<comment>Add column ishidden</comment>
+		<sql>     
+		    <![CDATA[  
+					alter table ref_program_gen_attribute add column ishidden boolean;
+		        ]]>
+		</sql>
+	</changeSet>
+
+	<changeSet author="mkamboj" id="120">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="1">
+				SELECT count(*) FROM
+				information_schema.columns WHERE
+				table_name='fs_user' and column_name='contactid';
+			</sqlCheck>
+		</preConditions>
+		<comment>Removing Not Null constraint from fs_user</comment>
+		<sql>     
+		    <![CDATA[  
+					alter table fs_user alter contactid drop not null;
+		        ]]>
+		</sql>
+	</changeSet>	
+	<changeSet author="prasingh" id="121">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				SELECT count(*) FROM
+				information_schema.columns WHERE
+				table_name='ref_program_gen_attribute' and column_name='discriminator';
+			</sqlCheck>
+		</preConditions>
+		<comment>Add column discriminator</comment>
+		<sql>     
+		    <![CDATA[  
+					alter table ref_program_gen_attribute add column discriminator character varying(55);
+		        ]]>
+		</sql>
+	</changeSet>
+	 <changeSet id="138" author="rverma" runOnChange="true">		
+		<createProcedure>		
+	<![CDATA[  		
+		CREATE OR REPLACE FUNCTION refreshmodelsearchtext(modelid bigint)		
+		  RETURNS void AS		
+		$BODY$		
+							DECLARE         		
+							displayalias  character varying(2000);		
+							BEGIN              		
+								displayalias := getModelAlias(modelid);		
+								update ref_program_manufacturer_model pmm		
+								set 		
+									modeltextsearch = to_tsvector('english',regexp_replace(mm.modelnumber || ' ' 		
+									|| man.description || ' ' || coalesce(mm.product,' ') || ' ' || coalesce(mm.productclass,' ') || ' ' ||		
+									 coalesce(mm.productfamily,' ') || ' ' || coalesce(mm.operatingsystem,' ') || ' ' || coalesce(mm.operatingsystemversion,' ') || ' ' || 		
+									 coalesce(mm.colors,' ') || ' ' || coalesce(array_to_string(pmm.carrier,' ',' '),' ') || ' ' || coalesce(man.description,' ') || ' ' || 		
+									 coalesce(pmm.carriersku,' ') || ' '|| coalesce(displayalias, '') || ' ' || coalesce(pmm.manufactureraliases, '') || ' ' || coalesce(pmm.modelaliases,''), E'\\W',' ', 'g') || ' ' || regexp_replace( mm.modelnumber || ' ' || man.description || ' ' || coalesce(mm.product,' ') || ' ' || coalesce(mm.productclass,' ') || ' ' || coalesce(mm.productfamily,' ') || ' ' || coalesce(mm.operatingsystem,' ') || ' ' || coalesce(mm.operatingsystemversion,' ') || ' ' || 		
+									 coalesce(mm.colors,' ') || ' '|| coalesce(array_to_string(pmm.carrier,' ',' '),' ') || ' ' || coalesce(man.description,' ') || ' ' || coalesce(pmm.carriersku,' ') || ' ' ||	coalesce(displayalias, '') || ' '|| coalesce(pmm.manufactureraliases, '') || ' ' || coalesce(pmm.modelaliases,''), '-','', 'g')) 		
+								from 		
+									ref_manufacturermodel  mm		
+									join ref_manufacturer man on (mm.manufacturerid = man.manufacturerid)		
+								where 		
+									  pmm.manufacturermodelid = mm.manufacturermodelid		
+									  and mm.manufacturermodelid = modelid;		
+							END;		
+							$BODY$		
+		  LANGUAGE plpgsql VOLATILE		
+		  COST 100;		
+		ALTER FUNCTION refreshmodelsearchtext(bigint)		
+		  OWNER TO postgres;		
+		
+		]]>		
+		</createProcedure>		
+	</changeSet>	
+	<changeSet author="rverma" id="10.001">
+	<preConditions onFail="MARK_RAN">
+		<sqlCheck expectedResult="0">
+			SELECT count(*) FROM
+			information_schema.columns WHERE
+			table_name='ref_search_attributes' and column_name='tigger';
+		</sqlCheck>
+	</preConditions>
+	<comment>Adding tigger to ref_search_attributes</comment>
+	<sql>     
+		    <![CDATA[  
+			alter table ref_search_attributes add column tigger varchar(1);			        ]]>
+	</sql>
+	</changeSet>
+	<changeSet author="rverma" id="145.IMP" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from pg_proc where
+				(proname = 'refreshmodelsearchorder' and proargnames=
+				'{programid_v,lastrun}') or (proname = 'refreshmodelsearchorder' and
+				proargnames= '{programid_v,lastrun}');
+			</sqlCheck>
+		</preConditions>
+		<comment>CREATE AND DROP PROCEDURE FOR VALUE SEARCH</comment>
+		<createProcedure>
+		  <![CDATA[  
+			CREATE OR REPLACE FUNCTION refreshmodelsearchorder(programid_v bigint, lastrun timestamp with time zone)
+			  RETURNS integer AS
+				$BODY$
+							 DECLARE   
+								TOTAL bigint := 0;
+								TEMP_V TIMESTAMP :=(select coalesce(max(uploadedtime),now() - INTERVAL '1 day') from ref_prioritization_upload);
+								query text;
+								record_v record;
+								BEGIN              
+								IF(TEMP_V::DATE < LASTRUN::DATE) then
+									RETURN 0;
+								ELSEif (TEMP_V::DATE >= LASTRUN::DATE) then
+								query := 'SELECT pm.programmodelcatgid as programmodelcatgid,
+								COALESCE(rp1.ranking*1000000,999000000)+COALESCE(rp2.ranking*10000,990000)+COALESCE(rp3.ranking*1,9999) as orders
+							        FROM ref_program_manufacturer_model  pm join  ref_manufacturermodel mm on (pm.manufacturermodelid=mm.manufacturermodelid)  and  pm.programcategoryid=(select pc.programcategoryid from ref_program_category  pc where pc.programid='||programid_v||')
+								join ref_manufacturer rm ON (mm.manufacturerid = rm.manufacturerid)
+								left outer join  ref_prioritization  rp1 on (rp1.value = rm.code and rp1.prioritizationtypeid=(select ppt.prioritizationtypeid from ref_prioritizationtype ppt  join ref_attribute a on (a.attributeid=ppt.attributeid and a.name=''MANUFACTURER'' and ppt.programid='||programid_v||')) and rp1.active=''true'')
+								left outer join  ref_prioritization  rp2 on (rp2.value = mm.productfamily and rp2.prioritizationtypeid=(select prioritizationtypeid from ref_prioritizationtype ppt  join ref_attribute a on (a.attributeid=ppt.attributeid and a.name=''PRODUCTFAMILY'' and ppt.programid='||programid_v||')) and rp2.active=''true'')
+								left outer join  ref_prioritization  rp3 on (rp3.value = mm.modelcode and rp3.prioritizationtypeid=(select prioritizationtypeid from ref_prioritizationtype  ppt  join ref_attribute a on (a.attributeid=ppt.attributeid and a.name=''MODELCODE'' and ppt.programid='||programid_v||')) and rp3.active=''true'')';
+								FOR record_v IN EXECUTE query LOOP
+									update ref_program_manufacturer_model set search_order =  record_v.orders where programmodelcatgid=record_v.programmodelcatgid;
+									--RAISE INFO '%     %', record_v.orders, record_v.programmodelcatgid; 
+									TOTAL := TOTAL+1;
+								END LOOP;
+								RETURN TOTAL;
+												
+								END IF;	
+							 END;
+						$BODY$
+				  LANGUAGE plpgsql VOLATILE
+				  COST 100;
+				ALTER FUNCTION refreshmodelsearchorder(bigint, timestamp with time zone)
+				  OWNER TO postgres;
+		 ]]>
+		</createProcedure>
+	</changeSet>
+	<changeSet author="rverma" id="190">
+	<preConditions onFail="MARK_RAN">
+		<sqlCheck expectedResult="0">
+			SELECT count(*) FROM
+			information_schema.columns WHERE
+			table_name='ref_prioritizationtype' and column_name='ishidden';
+		</sqlCheck>
+	</preConditions>
+	<comment>Adding tigger to ref_search_attributes</comment>
+	<sql>     
+		    <![CDATA[  
+			alter table ref_prioritizationtype add column ishidden boolean;			        ]]>
+	</sql>
+	</changeSet>
+	<changeSet author="rverma" id="146.4" runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="1">
+				select count(*) from pg_proc where proname = 'show_feature_search_attributes';
+			</sqlCheck>
+		</preConditions>
+		<comment>CDEV-844-bugfix</comment>
+		<createProcedure>
+		  <![CDATA[  
+				CREATE OR REPLACE FUNCTION show_feature_search_attributes(programcategoryid_v bigint, attribute_v character varying, filters hstore)
+				  RETURNS SETOF character varying AS
+				$BODY$
+				  DECLARE
+				    record_v RECORD;
+				    manufacturerdelta bigint:=10000000;
+				    productfamilydelta bigint:=10000;
+				    CODE_FILTER text;
+				    LABEL_FILTER text; 
+				    query_filters text:='';
+				    query text; 
+				  BEGIN
+				    IF(filters is not null) THEN
+				      query_filters :=(select get_filters(filters));
+				    END IF;
+				    IF (attribute_v ILIKE 'CARRIER') THEN
+				      query = 'SELECT c.code as code, c.description as label from ref_carrier c join ref_program_carrier pc on (c.carrierid=pc.carrierid)join ref_program p on (p.programid= 
+				      (select programid from ref_program_category  where programcategoryid ='||programcategoryid_v||'))
+				      where c.description in (select distinct(trim(unnest(carrier))) from ref_program_manufacturer_model programManufacturerModel 
+				      join ref_manufacturermodel manufacturermodel on (programManufacturerModel.manufacturerModelid =  manufacturermodel.manufacturerModelid and manufacturermodel.active=''true'')
+				      join ref_manufacturer manufacturer on (manufacturermodel.manufacturerid =  manufacturer.manufacturerid) '||query_filters||')
+				      order by pc.search_order';
+				    ELSEIF (attribute_v ILIKE 'PRODUCT') THEN
+				      CODE_FILTER = 'manufacturermodel.product';
+				      LABEL_FILTER = 'manufacturermodel.product'; 
+				      query ='select '||CODE_FILTER||' as code,'||LABEL_FILTER||' as label from ref_program_manufacturer_model programManufacturerModel
+				      join ref_manufacturermodel manufacturermodel on (programManufacturerModel.manufacturerModelid =  manufacturermodel.manufacturerModelid and manufacturermodel.active=''true'')
+				      join ref_manufacturer manufacturer on (manufacturermodel.manufacturerid =  manufacturer.manufacturerid)
+				      join ref_prioritization rp on (rp.value='||CODE_FILTER||' and rp.active=''true'')
+				      where programManufacturerModel.programCategoryid ='||programcategoryid_v||' AND trim('||CODE_FILTER||')!='''' '||query_filters||'
+				      GROUP BY '||CODE_FILTER||','||LABEL_FILTER||'
+				      ORDER BY min(rp.ranking),'||LABEL_FILTER||','||CODE_FILTER||'';
+				    ELSEIF (attribute_v ILIKE 'MANUFACTURER') THEN
+				      CODE_FILTER = 'manufacturer.code';
+				      LABEL_FILTER = 'manufacturer.description'; 
+				      query ='select '||CODE_FILTER||' as code,'||LABEL_FILTER||' as label from ref_program_manufacturer_model programManufacturerModel
+				      join ref_manufacturermodel manufacturermodel on (programManufacturerModel.manufacturerModelid =  manufacturermodel.manufacturerModelid and manufacturermodel.active=''true'')
+				      join ref_manufacturer manufacturer on (manufacturermodel.manufacturerid =  manufacturer.manufacturerid)
+				      where programManufacturerModel.programCategoryid ='||programcategoryid_v||' AND trim('||CODE_FILTER||')!='''' '||query_filters||'
+				      GROUP BY '||CODE_FILTER||','||LABEL_FILTER||'
+				      ORDER BY min(mod(programManufacturerModel.search_Order,'||manufacturerdelta||')),'||LABEL_FILTER||','||CODE_FILTER||'';
+				    ELSEIF (attribute_v ILIKE 'PRODUCTFAMILY') THEN
+				      CODE_FILTER = 'manufacturermodel.productfamily';
+				      LABEL_FILTER = 'manufacturermodel.productfamily'; 
+				      query ='select '||CODE_FILTER||' as code,'||LABEL_FILTER||' as label from ref_program_manufacturer_model programManufacturerModel
+				      join ref_manufacturermodel manufacturermodel on (programManufacturerModel.manufacturerModelid =  manufacturermodel.manufacturerModelid and manufacturermodel.active=''true'')
+				      join ref_manufacturer manufacturer on (manufacturermodel.manufacturerid =  manufacturer.manufacturerid)
+				      where programManufacturerModel.programCategoryid ='||programcategoryid_v||' AND trim('||CODE_FILTER||')!='''' '||query_filters||'
+				      GROUP BY '||CODE_FILTER||','||LABEL_FILTER||'
+				      ORDER BY min(mod(programManufacturerModel.search_Order,'||manufacturerdelta||')),'||LABEL_FILTER||','||CODE_FILTER||'';
+				    END IF;
+				    IF(query is null and LABEL_FILTER is null) THEN
+				      RAISE EXCEPTION USING 
+				      ERRCODE = '50001',
+				      message =  'FilterNotFoundException' ,
+				      HINT = 'Nonexistent FILTER --> '|| attribute_v  ;
+				    END IF;
+				    FOR record_v IN EXECUTE query
+				    LOOP
+				      return next record_v.label;
+				    END LOOP;
+				    return;
+				  END;
+				$BODY$
+				  LANGUAGE plpgsql VOLATILE
+				  COST 100
+				  ROWS 1000;
+				ALTER FUNCTION show_feature_search_attributes(bigint, character varying, hstore)
+				  OWNER TO postgres;
+		 ]]>
+		</createProcedure>
+	</changeSet>
+
+	<changeSet author="rverma" id="158">
+		<createTable tableName="ref_email">
+			<column name="id" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" />
+			</column>
+			<column name="subject" type="VARCHAR(255)">
+				<constraints nullable="true" />
+			</column>
+			<column name="message" type="VARCHAR(5000)">
+				<constraints nullable="false" />
+			</column>
+			<column name="sender_address" type="VARCHAR(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="recipient_address" type="VARCHAR(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="sentdate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column name="status" type="VARCHAR(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="programid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="rverma" id="159">
+		<addPrimaryKey tableName="ref_email" constraintName="id"
+			columnNames="id" />
+	</changeSet>
+	<changeSet author="rverma" id="161">
+		<addForeignKeyConstraint baseTableName="ref_email"
+			constraintName="ref_program_ref_email_fk" baseColumnNames="programid"
+			referencedTableName="ref_program" referencedColumnNames="programid" />
+	</changeSet>
+	<changeSet author="rverma" id="162">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				SELECT count(*) FROM
+				information_schema.columns WHERE
+				table_name='ref_email' and column_name='retry_count';
+			</sqlCheck>
+		</preConditions>
+		<comment>Add column retry_count</comment>
+		<sql>     
+		    <![CDATA[  
+					alter table ref_email add column retry_count bigint;
+		        ]]>
+		</sql>
+	</changeSet>
+	<changeSet author="rverma" id="163">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				SELECT count(*) FROM
+				information_schema.columns WHERE
+				table_name='ref_email' and column_name='retrydate';
+			</sqlCheck>
+		</preConditions>
+		<comment>Add column retry_count</comment>
+		<sql>     
+		    <![CDATA[  
+					alter table ref_email add column retrydate TIMESTAMP;
+		        ]]>
+		</sql>
+	</changeSet>
+</databaseChangeLog>
+

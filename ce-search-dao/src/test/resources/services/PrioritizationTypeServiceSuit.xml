@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="PrioritizationTypeServiceTestSuit" parallel="true">
+
+	<test name="getPrioritizationTypeListByMetaDataTest(programIdIs3)" preserve-order="false">
+		<parameter name="programId" value="3" />
+		<parameter name="attributeId" value="2" />
+		<classes>
+			<class name="com.erecyclingcorps.service.PrioritizationTypeServiceTest">
+				<methods>
+					<include name="getPrioritizationTypeListByMetaDataTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="getPrioritizationTypeListByMetaDataTest(programIdIs2)" preserve-order="false">
+		<parameter name="programId" value="2" />
+		<parameter name="attributeId" value="2" />
+		<classes>
+			<class name="com.erecyclingcorps.service.PrioritizationTypeServiceTest">
+				<methods>
+					<include name="getPrioritizationTypeListByMetaDataTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

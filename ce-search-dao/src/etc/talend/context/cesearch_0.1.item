@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd">
+  <talendfile:ContextType confirmationNeeded="false" name="Default">
+    <contextParameter comment="" name="cesearch_Server" prompt="cesearch_Server?" promptNeeded="false" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="cesearch_Database" prompt="cesearch_Database?" promptNeeded="false" type="id_String" value="consumerdb_dev"/>
+    <contextParameter comment="" name="cesearch_Schema" prompt="cesearch_Schema?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter comment="" name="cesearch_Port" prompt="cesearch_Port?" promptNeeded="false" type="id_String" value="5432"/>
+    <contextParameter comment="" name="cesearch_Password" prompt="cesearch_Password?" promptNeeded="false" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="cesearch_Login" prompt="cesearch_Login?" promptNeeded="false" type="id_String" value="postgres"/>
+  </talendfile:ContextType>
+  <talendfile:ContextType confirmationNeeded="false" name="QA">
+    <contextParameter comment="" name="cesearch_Server" prompt="cesearch_Server?" promptNeeded="false" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="cesearch_Database" prompt="cesearch_Database?" promptNeeded="false" type="id_String" value="cesearch"/>
+    <contextParameter comment="" name="cesearch_Schema" prompt="cesearch_Schema?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter comment="" name="cesearch_Port" prompt="cesearch_Port?" promptNeeded="false" type="id_String" value="5432"/>
+    <contextParameter comment="" name="cesearch_Password" prompt="cesearch_Password?" promptNeeded="false" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="cesearch_Login" prompt="cesearch_Login?" promptNeeded="false" type="id_String" value="postgres"/>
+  </talendfile:ContextType>
+  <talendfile:ContextType confirmationNeeded="false" name="UAT">
+    <contextParameter comment="" name="cesearch_Server" prompt="cesearch_Server?" promptNeeded="false" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="cesearch_Database" prompt="cesearch_Database?" promptNeeded="false" type="id_String" value="cesearch"/>
+    <contextParameter comment="" name="cesearch_Schema" prompt="cesearch_Schema?" promptNeeded="false" type="id_String" value=""/>
+    <contextParameter comment="" name="cesearch_Port" prompt="cesearch_Port?" promptNeeded="false" type="id_String" value="5432"/>
+    <contextParameter comment="" name="cesearch_Password" prompt="cesearch_Password?" promptNeeded="false" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="cesearch_Login" prompt="cesearch_Login?" promptNeeded="false" type="id_String" value="postgres"/>
+  </talendfile:ContextType>
+</xmi:XMI>

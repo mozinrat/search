@@ -1,0 +1,962 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+	<changeSet id="9.19.1" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_attribute;
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert generic Attributes in ref_attributes</comment>
+		<sql>     
+    <![CDATA[  
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'manufacturer','Manufacturer',1,'MODEL',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'modelcode','Model Code',1,'MODEL',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'product','Product',1,'MODEL',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'identification_number','Model identification number',1,'MODEL',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'productclass','Product Class',1,'MODEL',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'generation','Generation',1,'MODEL',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'productfamily','Product Family',1,'MODEL',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'capacity','Capacity',1,'MODEL',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'operatingsystem','Operating System',1,'MODEL',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'lteenabled','LTE',1,'MODEL',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'operatingsystemversion','Operating System Version',1,'MODEL',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'weight','Weight',1,'MODEL',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'colors','Colors',1,'MODEL',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'carrier','Carrier',1,'PROGRAM',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'network','Network',1,'PROGRAM',now(),null,null);
+insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'datawipe','Datawipe',1,'PROGRAM',now(),null,null);
+        	]]>
+		</sql>
+	</changeSet>
+
+	<changeSet id="9.19.1.1" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				Select count(*) from ref_program ;
+			</sqlCheck>
+		</preConditions>
+		<comment>Inserting domain data in ref_program table</comment>
+		<sql>
+			INSERT INTO ref_program (programid,programname,description,isactive) VALUES (nextval('ref_program_programid_seq'),'ALL','ALL Program',true);
+			INSERT INTO ref_program (programid,programname,description,isactive) VALUES (nextval('ref_program_programid_seq'),'TELUS','Telus Program',true);
+			INSERT INTO ref_program (programid,programname,description,isactive) VALUES (nextval('ref_program_programid_seq'),'ATT','ATT Program',true);
+			INSERT INTO ref_program (programid,programname,description,isactive) VALUES (nextval('ref_program_programid_seq'),'VERIZON','Verizon Program',true);
+		</sql>
+	</changeSet>
+
+	<changeSet id="9.19.1.2" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				Select count(*) from ref_category ;
+			</sqlCheck>
+		</preConditions>
+		<comment>Inserting domain data in ref_category table</comment>
+		<sql>
+			INSERT INTO ref_category (categoryid,code,description,createdby,createdtime,updatedby,updatedtime) VALUES (nextval('ref_category_categoryid_seq'),'CELLPHONE','CELLPHONE channel',1,now(),null,null);
+		</sql>
+	</changeSet>
+
+	<changeSet id="9.19.2" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from
+				ref_program_category;
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert generic values in ref_program_category</comment>
+		<sql>     
+    <![CDATA[  
+insert into ref_program_category  values (nextval('ref_program_category_programcategoryid_seq'),(select programid from ref_program where programname='ATT'),(select categoryid from ref_category where code='CELLPHONE'));
+        	]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.3" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_attribute
+				where name='modeltitle';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert generic Attributes in ref_attributes</comment>
+		<sql>     
+    <![CDATA[  
+		insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'modeltitle','Model Title',1,'PROGRAM',now(),null,null);
+        	]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.4" author="bbansal" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from fs_user where
+				username='bhuvnesh';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new app, contact and user</comment>
+		<sql>     
+    <![CDATA[  
+		INSERT INTO fs_contact( contactid, version, createdby, createddate, lastupdateddate, updatedby, secondaryphone, email, fax, primaryphone, firstname, lastname, middleinitial, contacttype)
+		    VALUES ( nextval('fs_contact_contactid_seq'), 1, 1,now(), now(), null, '7896541235',null, null, null, 'Bhuvnesh', 'Bansal',null, 'database contact');
+		INSERT INTO ref_application (applicationid,name,description,programid,createdby,createddate)
+			VALUES (nextval('ref_application_applicationid_seq'),'UPLOAD_PRIORITY','UPLOAD PRIORITY',(select programid from ref_program where programname='ALL'),nextval('fs_user_userid_seq'),now());
+        	]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.5" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="1">
+				select count(*) from ref_application limit 1;
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new user and roldes</comment>
+		<sql>     
+    <![CDATA[  
+		INSERT INTO fs_user( userid,applicationid, version, createdby, createddate, lastupdateddate, updatedby, active, contactid, lastlogindate, username, password, lastchangedpassworddate, showpreferences, timezone, failedloginattempts)
+		    VALUES (1,(select applicationid from ref_application where name='UPLOAD_PRIORITY'), 1, 1, now(), null,null, true, (select contactid from fs_contact where secondaryphone='7896541235'), now(), 'bhuvnesh', 'Password1', now(), true, 'en', 0);
+		
+		insert into ref_role values ('1','1','ROLE_USER','USER') ;
+		insert into ref_role values ('2','1','ROLE_ADMIN','ADMIN') ;
+		insert into fs_user_role values ('1','1') ;
+        	]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.6" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_prioritizationtype;
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new user and roldes</comment>
+		<sql>     
+    <![CDATA[  
+		insert into ref_prioritizationtype values(nextval('ref_prioritizationtype_prioritizationtypeid_seq'),3,1,(select attributeid from ref_attribute where name ilike 'manufacturer'));
+		insert into ref_prioritizationtype values(nextval('ref_prioritizationtype_prioritizationtypeid_seq'),3,2,(select attributeid from ref_attribute where name ilike 'product'));
+		insert into ref_prioritizationtype values(nextval('ref_prioritizationtype_prioritizationtypeid_seq'),3,3,(select attributeid from ref_attribute where name ilike 'modelcode'));
+        	]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.7" author="rverma" runOnChange="false">
+		<comment> Insert new user and roldes</comment>
+		<sql>     
+	    <![CDATA[  
+			insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'hostname','Hostname',1,'API',now(),null,null);
+			insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'port','Port',1,'API',now(),null,null);
+			insert into ref_attribute  values (nextval('ref_attribute_attributeid_seq'),'apiurl','Api url without hostname and port',1,'API',now(),null,null);
+        	]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.8.1" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_label;
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert demo label for localization</comment>
+		<sql>     
+    <![CDATA[  
+    	
+		insert into ref_locale  
+		values(nextval('ref_locale_localeid_seq'),'en_US','English','Default locale for US applications',1,null,null,now());
+
+		insert into ref_application_locale  
+		values (nextval('ref_application_locale_applocaleid_seq'),(select applicationid from ref_application where name='UPLOAD_PRIORITY'),(select localeid from ref_locale where localecode='en_US'));
+		
+		insert into ref_label values(nextval('ref_label_labelid_seq'),
+		       (select applocaleid from ref_application_locale al join ref_locale l on (al.localeid=l.localeid) join ref_application a on(a.applicationid=al.applicationid) where a.name='UPLOAD_PRIORITY' and l.localecode='en_US'),
+		       'this is default value',
+		       
+		       null,
+		       null,
+		       1,
+		       now(),
+		       'this is translation w.r.t applocale');
+        	]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.9" author="rverma" runOnChange="false">
+		<comment> Insert new user and roldes</comment>
+		<sql>     
+	    <![CDATA[  
+			insert into ref_program_gen_attribute 
+    		values(nextval('ref_program_gen_attribute_programgenattributeid_seq'),1,(select programid from ref_program where programname='ATT'),'localhost',(select attributeid from ref_attribute where name='hostname'));
+        	]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.10" author="rverma" runOnChange="false">
+		<comment> Insert new user and roldes</comment>
+		<sql>     
+	    <![CDATA[  
+			insert into ref_program_gen_attribute 
+    		values(nextval('ref_program_gen_attribute_programgenattributeid_seq'),1,(select programid from ref_program where programname='ATT'),'5432',(select attributeid from ref_attribute where name='port'));
+    		insert into ref_program_gen_attribute 
+    		values(nextval('ref_program_gen_attribute_programgenattributeid_seq'),1,(select programid from ref_program where programname='ATT'),'/api/url/get',(select attributeid from ref_attribute where name='apiurl'));
+        	]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.11" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_application where name='TRADE';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new demo application for trade</comment>
+		<sql>     
+	    <![CDATA[  
+			INSERT INTO ref_application (applicationid,name,description,programid,createdby,createddate)
+			VALUES (nextval('ref_application_applicationid_seq'),'TRADE','TRADE CE API',(select programid from ref_program where programname='ATT'),(select userid from fs_user where username = 'bhuvnesh'),now());
+			]]>
+		</sql>
+	</changeSet>
+	<!-- <changeSet id="9.19.12" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="3">
+				select count(*) from ref_program_gen_attribute;
+			</sqlCheck>
+		</preConditions>
+		<comment> Add application and user to hostname,port and apiurl</comment>
+		<sql>     
+	    <![CDATA[  
+			update ref_program_gen_attribute set userid =(select userid from fs_user where username = 'bhuvnesh');
+			update ref_program_gen_attribute set applicationid =(select applicationid from ref_application where name = 'TRADE');
+			]]>
+		</sql>
+	</changeSet> -->
+   <changeSet id="9.19.13" author="nrana" runOnChange="false">
+		<comment> Update attribute name to upper case</comment>
+		<sql>
+	    <![CDATA[
+			update ref_attribute set name=upper(name);
+
+			]]>
+		</sql>
+	</changeSet>
+	 <changeSet id="9.19.15" author="bbansal" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_attribute where name in ('APPUSERNAME','APPPASSWORD','APPAPIURL');
+			</sqlCheck>
+		</preConditions>
+		<comment> Adding initial data to ref_attributes for ce-app request data</comment>
+		<sql>  
+	    <![CDATA[
+	    	INSERT INTO ref_attribute(attributeid, name, description, createdby, type, createddate,updatedby, updateddate) VALUES (NEXTVAL('ref_attribute_attributeid_seq'),'CEAPPUSERNAME', 'CEAPPUserName', 1,'API', now(),1, now());
+			INSERT INTO ref_attribute(attributeid, name, description, createdby, type, createddate,updatedby, updateddate) VALUES (NEXTVAL('ref_attribute_attributeid_seq'),'CEAPPPASSWORD', 'CEAPPPassword', 1,'API', now(),1, now());
+			INSERT INTO ref_attribute(attributeid, name, description, createdby, type, createddate,updatedby, updateddate) VALUES (NEXTVAL('ref_attribute_attributeid_seq'),'CEAPPAPIURL', 'CEAPPApiUrl', 1,'API', now(), 1, now());
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.16" author="bbansal" runOnChange="false" context="devl">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_program_gen_attribute where attributeid in ((SELECT attributeid FROM ref_attribute WHERE name =
+				'CEAPPUSERNAME'),(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPPASSWORD'),(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPAPIURL'));
+			</sqlCheck>
+		</preConditions>
+		<comment> Adding initial data to ref_program_gen_attribute for ce-app request data for dev</comment>
+		<sql>  
+	    <![CDATA[
+	    		INSERT INTO ref_program_gen_attribute(programgenattributeid, description, programid, value, attributeid) VALUES (nextval('ref_program_gen_attribute_programgenattributeid_seq'),1,3 , 'monitor_api',(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPUSERNAME'));
+				INSERT INTO ref_program_gen_attribute(programgenattributeid, description, programid, value, attributeid) VALUES (nextval('ref_program_gen_attribute_programgenattributeid_seq'),1,3 , 'Password1',(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPPASSWORD'));
+				INSERT INTO ref_program_gen_attribute(programgenattributeid, description, programid, value, attributeid) VALUES (nextval('ref_program_gen_attribute_programgenattributeid_seq'),1,3 , 'https://att-dev-store.erecyclingcorps.com',(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPAPIURL'));
+		]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.17" author="bbansal" runOnChange="false" context="test">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_program_gen_attribute where attributeid in ((SELECT attributeid FROM ref_attribute WHERE name =
+				'CEAPPUSERNAME'),(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPPASSWORD'),(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPAPIURL'));
+			</sqlCheck>
+		</preConditions>
+		<comment> Adding initial data to ref_program_gen_attribute for ce-app request data for QA</comment>
+		<sql>  
+	    <![CDATA[
+	    		INSERT INTO ref_program_gen_attribute(programgenattributeid, description, programid, value, attributeid) VALUES (nextval('ref_program_gen_attribute_programgenattributeid_seq'),1,3 , 'api_root',(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPUSERNAME'));
+				INSERT INTO ref_program_gen_attribute(programgenattributeid, description, programid, value, attributeid) VALUES (nextval('ref_program_gen_attribute_programgenattributeid_seq'),1,3 , 'Password!',(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPPASSWORD'));
+				INSERT INTO ref_program_gen_attribute(programgenattributeid, description, programid, value, attributeid) VALUES (nextval('ref_program_gen_attribute_programgenattributeid_seq'),1,3 , 'https://att-qa-store.erecyclingcorps.com',(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPAPIURL'));
+		]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.18" author="bbansal" runOnChange="false" context="uat">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_program_gen_attribute where attributeid in ((SELECT attributeid FROM ref_attribute WHERE name =
+				'CEAPPUSERNAME'),(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPPASSWORD'),(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPAPIURL'));
+			</sqlCheck>
+		</preConditions>
+		<comment> Adding initial data to ref_program_gen_attribute for ce-app request data for UAT</comment>
+		<sql>  
+	    <![CDATA[
+	    		INSERT INTO ref_program_gen_attribute(programgenattributeid, description, programid, value, attributeid) VALUES (nextval('ref_program_gen_attribute_programgenattributeid_seq'),1,3 , 'att_root',(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPUSERNAME'));
+				INSERT INTO ref_program_gen_attribute(programgenattributeid, description, programid, value, attributeid) VALUES (nextval('ref_program_gen_attribute_programgenattributeid_seq'),1,3 , 'Password1',(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPPASSWORD'));
+				INSERT INTO ref_program_gen_attribute(programgenattributeid, description, programid, value, attributeid) VALUES (nextval('ref_program_gen_attribute_programgenattributeid_seq'),1,3 , 'https://att-uat-store.flipswap.com',(SELECT attributeid FROM ref_attribute WHERE name = 'CEAPPAPIURL'));
+		]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.20" author="bbansal" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_prioritizationtype where attributeid = (select attributeid from ref_attribute where name = 'PRODUCT') and programid = (select programid from ref_program where programname = 'ATT');
+			</sqlCheck>
+		</preConditions>
+		<comment> UPDATE ATTRIBUTE TO 'PRODUCT FAMILY' FROM 'PRODUCT' FOR ATT PROGRAM</comment>
+		<sql>  
+	    <![CDATA[
+	    	update ref_prioritizationtype set attributeid =(select attributeid from ref_attribute where name = 'PRODUCTFAMILY') where attributeid = (select attributeid from ref_attribute where name = 'PRODUCT') and programid = (select programid from ref_program where programname = 'ATT');
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.21" author="bbansal" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="1">
+				select count(*) from ref_prioritizationtype where attributeid = (select attributeid from ref_attribute where name = 'PRODUCT') and programid = (select programid from ref_program where programname = 'ATT');
+			</sqlCheck>
+		</preConditions>
+		<comment> UPDATE ATTRIBUTE TO 'PRODUCT FAMILY' FROM 'PRODUCT' FOR ATT PROGRAM</comment>
+		<sql>  
+	    <![CDATA[
+	    	update ref_prioritizationtype set attributeid =(select attributeid from ref_attribute where name = 'PRODUCTFAMILY') where attributeid = (select attributeid from ref_attribute where name = 'PRODUCT') and programid = (select programid from ref_program where programname = 'ATT');
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.25.2" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="t">
+				select count(*)>0 from ref_search_attributes;
+			</sqlCheck>
+		</preConditions>
+		<comment> Re populate </comment>
+		<sql>  
+	    <![CDATA[
+	    	delete from ref_search_attributes;
+	    	alter sequence ref_search_attributes_seq start with 1;
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.26.2" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="f">
+				select count(*)>0 from ref_search_attributes where code ilike 'MANUFACTURER' and 
+				programcategoryid= ( select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid
+ 				join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE') ; 
+
+			</sqlCheck>
+		</preConditions>
+		<comment> Add wideget MANUFACTURER</comment>
+		<sql>     
+	    <![CDATA[  
+			insert into ref_search_attributes (searchattributeid,attributeid,display_order,code,isactive,programcategoryid,help_text,label) values (
+			nextval('ref_search_attributes_seq'),
+			 (select attributeid from ref_attribute  where name= 'MANUFACTURER'), 30,
+			  'MANUFACTURER', true, (select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE'), 
+			  'This is a tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>Donec in mauris sed lorem tristique commodo. Mauris scelerisque pretium augue suscipit mollis.', 'Who is your manufacturer?');
+			  ]]>
+		</sql>
+	</changeSet>
+		<changeSet id="9.19.27.2" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="f">
+				select count(*)>0 from ref_search_attributes where code ilike 'CARRIER' and 
+				programcategoryid= ( select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid
+ 				join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE') ;
+
+			</sqlCheck>
+		</preConditions>
+		<comment> Add widget CARRIER</comment>
+		<sql>     
+	    <![CDATA[  
+			insert into ref_search_attributes (searchattributeid,attributeid,display_order,code,isactive,programcategoryid,help_text,label) values (
+			nextval('ref_search_attributes_seq'), (select attributeid from ref_attribute  where name= 'CARRIER'),
+			20, 'CARRIER', true, (select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE'), 
+			'This is a tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>Donec in mauris sed lorem tristique commodo. Mauris scelerisque pretium augue suscipit mollis.', 'Who is your carrier?');
+			]]>
+		</sql>
+	</changeSet>
+		<changeSet id="9.19.28.2" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="f">
+				select count(*)>1 from ref_search_attributes where code ilike 'PRODUCTFAMILY' and 
+				programcategoryid= ( select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid
+ 				join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE');
+
+			</sqlCheck>
+		</preConditions>
+		<comment> Add wideget PRODUCTFAMILY</comment>
+		<sql>     
+	    <![CDATA[  
+			insert into ref_search_attributes (searchattributeid,attributeid,display_order,code,isactive,programcategoryid,help_text,label) values (
+			nextval('ref_search_attributes_seq'), 
+			(select attributeid from ref_attribute  where name= 'PRODUCTFAMILY'),
+			 40, 'PRODUCTFAMILY', true, 
+			 (select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE'),
+			  'This is a tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>Donec in mauris sed lorem tristique commodo. Mauris scelerisque pretium augue suscipit mollis.', 'What is your model type?');
+			  	]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.29.2" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="f">
+				select count(*)>0 from ref_search_attributes where code ilike 'PRODUCT' and 
+				programcategoryid= ( select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid
+ 				join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE');
+
+			</sqlCheck>
+		</preConditions>
+		<comment> Add wideget Product</comment>
+		<sql>     
+	    <![CDATA[  
+			insert into ref_search_attributes (searchattributeid,attributeid,display_order,code,isactive,programcategoryid,help_text,label) values (
+			nextval('ref_search_attributes_seq'), 
+			(select attributeid from ref_attribute  where name ilike 'PRODUCT'), 
+ 			10, 'PRODUCT', true, 
+			(select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE'),
+ 			'This is a tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>Donec in mauris sed lorem tristique commodo. Mauris scelerisque pretium augue suscipit mollis.', 'What would you like to trade?');
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.30" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from fs_user where  username='fs_rjivan';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new user and roldes</comment>
+		<sql>     
+    <![CDATA[  
+		INSERT INTO fs_user( applicationid, version, createdby, createddate, lastupdateddate, updatedby, active, contactid, lastlogindate, username, password, lastchangedpassworddate, showpreferences, timezone, failedloginattempts)
+		    VALUES ((select applicationid from ref_application where name='UPLOAD_PRIORITY'), 1, 1, now(), null,null, true, (select contactid from fs_contact where secondaryphone='7896541235'), now(), 'fs_rjivan', '$2a$10$eCx3Y1AyLGtZXIaypZDGseLnsMgoOEijP4RV526AGMGpqMGulKbAS', now(), true, 'en', 0);
+		
+				insert into fs_user_role values ((select userid from fs_user where username='fs_rjivan'),'1') ;
+        	]]>
+		</sql>
+	</changeSet>
+		<changeSet id="9.19.31.1" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_label where  code='DISCOVER_BY_META_HEADER';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new user and roldes</comment>
+		<sql>     
+    <![CDATA[  
+		insert into ref_label (applocaleid,value,updatedby,updateddate,createdby,createddate,code) values ((select al.applocaleid from ref_application_locale al join ref_application app on al.applicationid= app.applicationid join ref_locale loc on al.localeid= loc.localeid where app.name= 'UPLOAD_PRIORITY' and loc.localecode= 'en_US'),'Need a little help locating your device? Answer a few simple questions.',null,null,1,now(),'DISCOVER_BY_META_HEADER');
+		insert into ref_label (applocaleid,value,updatedby,updateddate,createdby,createddate,code) values ((select al.applocaleid from ref_application_locale al join ref_application app on al.applicationid= app.applicationid join ref_locale loc on al.localeid= loc.localeid where app.name= 'UPLOAD_PRIORITY' and loc.localecode= 'en_US'),'Search Now',null,null,1,now(),'DISCOVER_BY_META_BUTTON');
+		insert into ref_label (applocaleid,value,updatedby,updateddate,createdby,createddate,code) values ((select al.applocaleid from ref_application_locale al join ref_application app on al.applicationid= app.applicationid join ref_locale loc on al.localeid= loc.localeid where app.name= 'UPLOAD_PRIORITY' and loc.localecode= 'en_US'),'Below are the devices that most closely match your search. Click on the image to choose your device.',null,null,1,now(),'DISCOVER_BY_META_RESULT');
+	]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.32" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_carrier;
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert carriers</comment>
+		<sql>     
+    		<![CDATA[  
+		    insert into ref_carrier (code,description,createdby,createddate) values ('12','18123',2214,'2011-07-20 17:43:12.766+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('ATT','AT&T',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('NEX','Nextel',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('TMO','T-Mobile',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('ALL','Alltel',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('BEL','Bell Mobility',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('BLU','Bluegrass Cellular',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('CEL','Cellular One',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('FID','Fido',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('HEL','Helio',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('MET','Metro PCS',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('OTH','Other',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('QWE','Qwest',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('SKM','SaskTel',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('SOU','Southern LINC',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('SUN','SunCom',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('TRA','TracFone',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('UNL','Unlocked',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('USC','US Cellular',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('CRI','Cricket',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('UNB','Unbranded',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('MTS','MTS Mobility',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('SPN','Sprint Nextel',2214,'2010-05-17 07:50:16.961589+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('BOO','Boost',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('TES','TELUS',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('KOD','Koodo',2214,'2013-01-18 15:40:42.234318+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('ROG','Rogers',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('VIR','Virgin Mobile',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('VER','Verizon',2214,'2009-09-21 11:28:16.471876+05:30');
+		insert into ref_carrier (code,description,createdby,createddate) values ('SPR','Sprint',2214,'2009-09-21 11:28:16.471876+05:30');
+		]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.33" author="rverma" runOnChange="false">
+		<comment> Insert carriers order</comment>
+		<sql>     
+    		<![CDATA[  
+			delete from ref_program_carrier;
+			insert into ref_program_carrier values ((select programid from ref_program where programname='ATT'),(select carrierid from ref_carrier  where description ='AT&T'),1);
+			insert into ref_program_carrier values ((select programid from ref_program where programname='ATT'),(select carrierid from ref_carrier  where description ='Sprint'),2);
+			insert into ref_program_carrier values ((select programid from ref_program where programname='ATT'),(select carrierid from ref_carrier  where description ='T-Mobile'),3);
+			insert into ref_program_carrier values ((select programid from ref_program where programname='ATT'),(select carrierid from ref_carrier  where description ='Verizon'),4);
+			insert into ref_program_carrier values ((select programid from ref_program where programname='ATT'),(select carrierid from ref_carrier  where description ='Other'),5);
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.35" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_attribute where name='PRECOMPLETEQUESTIONS';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for PRECOMPLETE QUESTIONS</comment>
+		<sql>     
+    		<![CDATA[  
+			update ref_program_gen_attribute  set discriminator ='GEN_ATTRIBUTES';
+			insert into ref_attribute values (nextval('ref_attribute_attributeid_seq'),'PRECOMPLETEQUESTIONS','PRECOMPLETEQUESTIONS',1,'TRADE_OPTN',now(),null,null);
+			]]>
+		</sql>
+	</changeSet>
+	
+	
+	<changeSet id="9.19.35.1" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_application_locale where applicationid = (select applicationid from ref_application where name= 'TRADE') and localeid=(select localeid from ref_locale where localecode= 'en_US');
+			</sqlCheck>
+		</preConditions>
+		<comment> Add application localization for TRADE</comment>
+		<sql>     
+    		<![CDATA[  
+			insert into ref_application_locale (applicationid, localeid) values((select applicationid from ref_application where name= 'TRADE'),(select localeid from ref_locale where localecode= 'en_US'));
+			]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet id="9.19.35.2" author="mkamboj" runOnChange="false">
+	<preConditions onFail="MARK_RAN">
+		<sqlCheck expectedResult="0">
+			select count(*) from fs_user where username='SYSTEM_USER';
+		</sqlCheck>
+	</preConditions>
+	<comment> Insert system_user</comment>
+	<sql>     
+    <![CDATA[  
+		INSERT INTO fs_user( userid,applicationid, version, createdby, createddate, lastupdateddate, updatedby, active, username, password, lastchangedpassworddate, showpreferences, timezone, failedloginattempts) VALUES (nextval('fs_user_userid_seq'),(select applicationid from ref_application where name='UPLOAD_PRIORITY'), 1, currval('fs_user_userid_seq'), now(), null,null, false, 'SYSTEM_USER', 'nologinallowed', now(), true, 'en', 0);
+    ]]>
+	</sql>
+	</changeSet>
+
+	
+	<changeSet id="9.19.35.3" author="prasingh" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(1) from  ref_label where code= 'DEMO_DESCRIPTION';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert label DEMO_DESCRIPTION</comment>
+		<sql>     
+	    	<![CDATA[  
+	    		insert into ref_label(applocaleid, value, createdby, createddate, code) values((select applocaleid from ref_application_locale al join ref_locale l on (al.localeid=l.localeid) join ref_application a on(a.applicationid=al.applicationid) where a.name='UPLOAD_PRIORITY' and l.localecode='en_US'), 'DEMO DESCRIPTION', (select userid from fs_user where username  = 'SYSTEM_USER'), now(), 'DEMO_DESCRIPTION');
+	        ]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet id="9.19.36" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_program_gen_attribute where discriminator='TRADE_OPTIONS';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for PRECOMPLETE QUESTIONS</comment>
+		<sql>     
+    		<![CDATA[  
+			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator,sortorder,ismandatory)
+ 				VALUES ((select labelid from ref_label where code='DEMO_DESCRIPTION'),(select programid from ref_program where programname='ATT') , add_ref_label('TRADE','en_US','AGREE_TERMS','I have read and agree to terms and conditions'),(SELECT attributeid FROM ref_attribute WHERE name = 'PRECOMPLETEQUESTIONS'),'TRADE_OPTIONS' ,1, 'true');
+ 			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator,sortorder,ismandatory)
+ 				VALUES ((select labelid from ref_label where code='DEMO_DESCRIPTION'),(select programid from ref_program where programname='ATT') , add_ref_label('TRADE','en_US','DONATE_SOLDIER','Please donate this device to cell phone for soldiers'),(SELECT attributeid FROM ref_attribute WHERE name = 'PRECOMPLETEQUESTIONS'),'TRADE_OPTIONS' ,1, 'false');
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.42.1" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_attribute
+				where name='HEADER' and type='CONTACTUS';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for HEADER</comment>
+		<sql>     
+    		<![CDATA[  
+			insert into ref_attribute values (nextval('ref_attribute_attributeid_seq'),'HEADER','Header for contact Us section',(select userid from fs_user where username='fs_rjivan'),'CONTACTUS',now(),null,null);
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.43" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from
+				ref_program_gen_attribute where discriminator='CONTACTUS' and
+				attributeid=(select attributeid from ref_attribute where
+				name='HEADER');
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for PRECOMPLETE QUESTIONS</comment>
+		<sql>     
+    		<![CDATA[  
+			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator)
+ 				VALUES ((select labelid from ref_label where code='DEMO_DESCRIPTION'),(select programid from ref_program where programname='ATT') , add_ref_label('TRADE','en_US','HEADER_TITLE','Contact Us'),(SELECT attributeid FROM ref_attribute WHERE name = 'HEADER'),'CONTACTUS');
+ 			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator)
+ 				VALUES ((select labelid from ref_label where code='DEMO_DESCRIPTION'),(select programid from ref_program where programname='ATT') , add_ref_label('TRADE','en_US','HEADER_SUBTITLE','Your email address'),(SELECT attributeid FROM ref_attribute WHERE name = 'HEADER'),'CONTACTUS');
+			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator)
+ 				VALUES ((select labelid from ref_label where code='DEMO_DESCRIPTION'),(select programid from ref_program where programname='ATT') , add_ref_label('TRADE','en_US','HEADER_EXAMPLETEXT','example xxxx @ xxxx.com'),(SELECT attributeid FROM ref_attribute WHERE name = 'HEADER'),'CONTACTUS');
+			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator)
+ 				VALUES ((select labelid from ref_label where code='DEMO_DESCRIPTION'),(select programid from ref_program where programname='ATT') , add_ref_label('TRADE','en_US','HEADER_VALID_EMAILTEXT','Re - enter your email'),(SELECT attributeid FROM ref_attribute WHERE name = 'HEADER'),'CONTACTUS');
+			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator)
+ 				VALUES ((select labelid from ref_label where code='DEMO_DESCRIPTION'),(select programid from ref_program where programname='ATT') , add_ref_label('TRADE','en_US','HEADER_ERRORTEXT','The email id is not valid'),(SELECT attributeid FROM ref_attribute WHERE name = 'HEADER'),'CONTACTUS');
+ 			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator)
+ 				VALUES ((select labelid from ref_label where code='DEMO_DESCRIPTION'),(select programid from ref_program where programname='ATT') , add_ref_label('TRADE','en_US','HEADER_EMAILTO','rverma@qasource.com'),(SELECT attributeid FROM ref_attribute WHERE name = 'HEADER'),'CONTACTUS');
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.44" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_attribute
+				where name='QUESTIONS' and type='CONTACTUS';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for QUESTIONS</comment>
+		<sql>     
+    		<![CDATA[  
+			insert into ref_attribute values (nextval('ref_attribute_attributeid_seq'),'QUESTIONS','Questions for contact Us section',(select userid from fs_user where username ='fs_rjivan'),'CONTACTUS',now(),null,null);
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.45" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from
+				ref_program_gen_attribute where discriminator='CONTACTUS' and
+				attributeid=(select attributeid from ref_attribute where
+				name='QUESTIONS');
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for PRECOMPLETE QUESTIONS</comment>
+		<sql>     
+    		<![CDATA[  
+			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator)
+ 				VALUES ((select labelid from ref_label where code='DEMO_DESCRIPTION'),(select programid from ref_program where programname='ATT') , add_ref_label('TRADE','en_US','QUESTIONS_HEADING','Sumit a question,request information(check your topic below)'),(SELECT attributeid FROM ref_attribute WHERE name = 'QUESTIONS'),'CONTACTUS');
+ 			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator)
+ 				VALUES ((select labelid from ref_label where code='DEMO_DESCRIPTION'),(select programid from ref_program where programname='ATT') , add_ref_label('TRADE','en_US','QUESTIONS_BULLETS','Status of my Buyback submission
+				 															#$#Questions about an AT&T promotion
+															 				#$#Request shipping materials
+															 				#$#Void my Buyback
+															 				#$#General information on the AT & T Buyback Program
+															 				#$#My device is not listed 
+															 				#$#Resend my confirmation receipt
+															 				#$#Questions about my promotion card
+															 				#$#Other'),(SELECT attributeid FROM ref_attribute WHERE name = 'QUESTIONS'),'CONTACTUS');
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.46" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_attribute where name='COMMENTS' and
+				type='CONTACTUS';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for QUESTIONS</comment>
+		<sql>     
+    		<![CDATA[  
+			insert into ref_attribute values (nextval('ref_attribute_attributeid_seq'),'COMMENTS','Questions for contact Us section',(select userid from fs_user where username ='fs_rjivan'),'CONTACTUS',now(),null,null);
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.47" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_program_gen_attribute where
+				discriminator='CONTACTUS' and attributeid=(select attributeid from
+				ref_attribute where name='COMMENTS');
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for contactus comments</comment>
+		<sql>     
+    		<![CDATA[  
+			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator)
+ 				VALUES ((select labelid from ref_label where code='DEMO_DESCRIPTION'),(select programid from ref_program where programname='ATT') , add_ref_label('TRADE','en_US','COMMENTS_TITLE','Comments'),(SELECT attributeid FROM ref_attribute WHERE name = 'COMMENTS'),'CONTACTUS');
+ 			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator)
+ 				VALUES ((select labelid from ref_label where code='DEMO_DESCRIPTION'),(select programid from ref_program where programname='ATT') , add_ref_label('TRADE','en_US','COMMENTS_ALT','AT&T Buyback Program'),(SELECT attributeid FROM ref_attribute WHERE name = 'COMMENTS'),'CONTACTUS');
+			]]>
+		</sql>
+	</changeSet>
+
+	<changeSet id="10.0.1" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_attribute where name='TRADE_CONFIRMATION';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for TRADE_CONFIRMATION</comment>
+		<sql>     
+    		<![CDATA[  
+			update ref_program_gen_attribute  set discriminator ='GEN_ATTRIBUTES';
+			insert into ref_attribute values (nextval('ref_attribute_attributeid_seq'),'TRADE_CONFIRMATION','TRADE_CONFIRMATION',(select userid from fs_user where username ='SYSTEM_USER'),'TRADE_OPTN',now(),null,null);
+			]]>
+		</sql>
+	</changeSet>
+	
+	
+		<changeSet id="10.0.2.1" author="rverma" runOnChange="false">		
+		<preConditions onFail="MARK_RAN">		
+			<sqlCheck expectedResult="0">		
+				select count(*) from ref_program_gen_attribute where discriminator='TRADE_OPTIONS' and attributeid = (SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_CONFIRMATION');;		
+			</sqlCheck>		
+		</preConditions>		
+		<comment> Insert new ref_program_gen_attribute for TRADE_CONFIRMATION</comment>		
+		<sql>     		
+    		<![CDATA[  	
+    		delete from ref_program_gen_attribute	where value in ('AGREE_TERMS','DONATE_SOLDIER','EMAIL_SEND');
+			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator,sortorder,ismandatory,ishidden)		
+ 				VALUES ((select labelid from ref_label where value='DEMO DESCRIPTION' and applocaleid = (select localeid from ref_locale where localecode='en_US')),(select programid from ref_program  where programname='ATT') , add_ref_label('TRADE','en_US','AGREE_TERMS','I have read and agree to terms and conditions'),(SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_CONFIRMATION'),'TRADE_OPTIONS' ,(select COALESCE(max(sortorder)+10,10) from ref_program_gen_attribute where discriminator='TRADE_OPTIONS' and attributeid = (SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_CONFIRMATION')), 'true','false');		
+ 			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator,sortorder,ismandatory,ishidden)		
+ 				VALUES ((select labelid from ref_label where value='DEMO DESCRIPTION' and applocaleid = (select localeid from ref_locale where localecode='en_US')),(select programid from ref_program  where programname='ATT') , add_ref_label('TRADE','en_US','DONATE_SOLDIER','Please donate this device to cell phone for soldiers'),(SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_CONFIRMATION'),'TRADE_OPTIONS' ,(select COALESCE(max(sortorder)+10,10) from ref_program_gen_attribute where discriminator='TRADE_OPTIONS' and attributeid = (SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_CONFIRMATION')), 'false','false');		
+			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator,sortorder,ismandatory,ishidden)		
+ 				VALUES ((select labelid from ref_label where value='DEMO DESCRIPTION' and applocaleid = (select localeid from ref_locale where localecode='en_US')),(select programid from ref_program  where programname='ATT') , add_ref_label('TRADE','en_US','EMAIL_SEND','Email Send'),(SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_CONFIRMATION'),'TRADE_OPTIONS' ,(select COALESCE(max(sortorder)+10,10) from ref_program_gen_attribute where discriminator='TRADE_OPTIONS' and attributeid = (SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_CONFIRMATION')), 'true','true');		
+			]]>		
+		</sql>		
+	</changeSet>		
+	<changeSet id="10.0.3" author="mkamboj" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_attribute where name='TRADE_COMPLETE';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for PRECOMPLETE QUESTIONS</comment>
+		<sql>     
+    		<![CDATA[  
+			insert into ref_attribute values (nextval('ref_attribute_attributeid_seq'),'TRADE_COMPLETE','TRADE_COMPLETE',(select userid from fs_user where username ='SYSTEM_USER'),'TRADE_OPTN',now(),null,null);
+			]]>
+		</sql>
+	</changeSet>
+
+	<changeSet id="10.0.4" author="mkamboj" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from
+				ref_program_gen_attribute where discriminator='TRADE_OPTIONS' and
+				attributeid = (SELECT attributeid FROM ref_attribute WHERE name =
+				'TRADE_COMPLETE');
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_program_gen_attribute for TRADE_COMPLETE</comment>
+		<sql>     
+    		<![CDATA[  
+			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator,sortorder,ismandatory,ishidden)
+ 				VALUES ((select labelid from ref_label where value='DEMO DESCRIPTION' and applocaleid = (select localeid from ref_locale where localecode='en_US')),(select programid from ref_program  where programname='ATT') , add_ref_label('TRADE','en_US','AGREE_TERMS','I have read and agree to terms and conditions.'),(SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_COMPLETE'),'TRADE_OPTIONS' ,(select COALESCE(max(sortorder)+10,10) from ref_program_gen_attribute where discriminator='TRADE_OPTIONS' and attributeid = (SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_COMPLETE')), 'true','false');
+ 			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator,sortorder,ismandatory,ishidden)
+ 				VALUES ((select labelid from ref_label where value='DEMO DESCRIPTION' and applocaleid = (select localeid from ref_locale where localecode='en_US')),(select programid from ref_program  where programname='ATT') , add_ref_label('TRADE','en_US','DONATE_SOLDIER','Please donate this device to cell phone for soldiers.'),(SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_COMPLETE'),'TRADE_OPTIONS' ,(select COALESCE(max(sortorder)+10,10) from ref_program_gen_attribute where discriminator='TRADE_OPTIONS' and attributeid = (SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_COMPLETE')), 'false','false');
+ 			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator,sortorder,ismandatory,ishidden)
+ 				VALUES ((select labelid from ref_label where value='DEMO DESCRIPTION' and applocaleid = (select localeid from ref_locale where localecode='en_US')),(select programid from ref_program  where programname='ATT') , add_ref_label('TRADE','en_US','EMAIL_SEND','Email Send'),(SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_COMPLETE'),'TRADE_OPTIONS' ,(select COALESCE(max(sortorder)+10,10) from ref_program_gen_attribute where discriminator='TRADE_OPTIONS' and attributeid = (SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_COMPLETE')), 'true','false');
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="10.0.5" author="prasingh" runOnChange="false" context="uat">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="1">
+				select count(pga.programgenattributeid) from ref_program_gen_attribute pga join ref_attribute att on pga.attributeid= att.attributeid join ref_program pro on pro.programid= pga.programid where att.name= 'CEAPPAPIURL' and pro.programname= 'ATT';
+			</sqlCheck>
+		</preConditions>
+		<comment> Updating url for UAT</comment>
+		<sql>     
+    		update ref_program_gen_attribute pga set value= 'https://att.tradein-uat.erecyclingcorps.com' from ref_attribute att, ref_program pro where att.name= 'CEAPPAPIURL' and pro.programname= 'ATT' and pga.attributeid= att.attributeid and pro.programid= pga.programid;
+		</sql>
+	</changeSet>
+	<changeSet id="10.0.6" author="rverma" runOnChange="false">
+		<comment> Inserting tigger ?</comment>
+		<sql>
+			update ref_search_attributes set tigger='?';
+		</sql>
+	</changeSet>
+	<changeSet id="10.0.7" author="rverma" runOnChange="false">
+		<comment> Inserting hidden prioritization for PRODUCT</comment>
+		<sql>
+		update ref_prioritizationtype set ishidden='false';
+		insert into ref_prioritizationtype values(nextval('ref_prioritizationtype_prioritizationtypeid_seq'),(select programid from ref_program where programname='ATT'),-1,(select attributeid from ref_attribute where name ilike 'PRODUCT'),'true');
+		</sql>
+	</changeSet>
+	<changeSet id="10.0.8" author="rverma" runOnChange="false">
+		<comment> Inserting prioritization for PRODUCT</comment>
+		<sql>
+			insert into ref_prioritization  (prioritizationtypeid,value,programcategoryid,ranking,active) values ((select prioritizationtypeid from ref_prioritizationtype  p join ref_attribute a on (p.attributeid=a.attributeid) where a.name='PRODUCT'),'IPHONE',
+			( select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE'),1,'true');
+			insert into ref_prioritization  (prioritizationtypeid,value,programcategoryid,ranking,active) values ((select prioritizationtypeid from ref_prioritizationtype  p join ref_attribute a on (p.attributeid=a.attributeid) where a.name='PRODUCT'),'SMARTPHONE',
+			( select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE'),2,'true');
+			insert into ref_prioritization  (prioritizationtypeid,value,programcategoryid,ranking,active) values ((select prioritizationtypeid from ref_prioritizationtype  p join ref_attribute a on (p.attributeid=a.attributeid) where a.name='PRODUCT'),'TABLET',
+			( select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE'),3,'true');
+			insert into ref_prioritization  (prioritizationtypeid,value,programcategoryid,ranking,active) values ((select prioritizationtypeid from ref_prioritizationtype  p join ref_attribute a on (p.attributeid=a.attributeid) where a.name='PRODUCT'),'FEATUREPHONE',
+			( select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE'),4,'true');
+			insert into ref_prioritization  (prioritizationtypeid,value,programcategoryid,ranking,active) values ((select prioritizationtypeid from ref_prioritizationtype  p join ref_attribute a on (p.attributeid=a.attributeid) where a.name='PRODUCT'),'OTHER',
+			( select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE'),5,'true');
+			insert into ref_prioritization  (prioritizationtypeid,value,programcategoryid,ranking,active) values ((select prioritizationtypeid from ref_prioritizationtype  p join ref_attribute a on (p.attributeid=a.attributeid) where a.name='PRODUCT'),'AIRCARD',
+			( select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE'),6,'true');
+			insert into ref_prioritization  (prioritizationtypeid,value,programcategoryid,ranking,active) values ((select prioritizationtypeid from ref_prioritizationtype  p join ref_attribute a on (p.attributeid=a.attributeid) where a.name='PRODUCT'),'NETBOOK',
+			( select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE'),7,'true');
+			insert into ref_prioritization  (prioritizationtypeid,value,programcategoryid,ranking,active) values ((select prioritizationtypeid from ref_prioritizationtype  p join ref_attribute a on (p.attributeid=a.attributeid) where a.name='PRODUCT'),'RENEWAL',
+			( select programcategoryid from ref_program_category  pc join ref_program pro on pc.programid= pro.programid join ref_category cat on pc.categoryid= cat.categoryid where pro.programname='ATT' and cat.code= 'CELLPHONE'),8,'true');
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.39" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_attribute where name='DEVICEWORTHIMAGEURL';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for DEVICEWORTHIMAGEURL</comment>
+		<sql>     
+    		<![CDATA[  
+			insert into ref_attribute values (nextval('ref_attribute_attributeid_seq'),'DEVICEWORTHIMAGEURL','Url For device worth',(select userid from fs_user where username='fs_rjivan'),'API',now(),null,null);
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.39.1" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="1">
+				select count(*) from ref_label where code='GEN_ATTRIBUTES';
+			</sqlCheck>
+		</preConditions>
+		<comment> insert default label for deviceimage</comment>
+		<!-- Description is not usable as of now since we are not showing any program specific attribut to any UI. would be mapped to ref_label demo entry  -->
+		<sql>     
+    		<![CDATA[  
+			insert into ref_label(applocaleid,value,code) values (select  al.applocaleid from ref_application_locale al join ref_application a on (a.applicationid=al.applicationid) join ref_locale l on (l.localeid=al.localeid)
+												  where a.name='TRADE' and l.localecode='en_US','Demo Description','DEMO_DESCRIPTION');	
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.40" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_program_gen_attribute where discriminator='GEN_ATTRIBUTES' and attributeid=(select attributeid from ref_attribute where name='DEVICEWORTHIMAGEURL');
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for PRECOMPLETE QUESTIONS</comment>
+		<!-- Description is not usable as of now since we are not showing any program specific attribut to any UI. would be mapped to ref_label demo entry  -->
+		<sql>     
+    		<![CDATA[  
+			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator)
+ 				VALUES ((select labelid from ref_label where code='DEMO_DESCRIPTION'),(select programid from ref_program where programname='ATT') ,'/asset/image/device-worth.png',(SELECT attributeid FROM ref_attribute WHERE name = 'DEVICEWORTHIMAGEURL'),'GEN_ATTRIBUTESs');
+ 				
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.41" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_attribute where name='BUYBACKIMAGEURL';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for BUYBACKIMAGEURL</comment>
+		<sql>     
+    		<![CDATA[  
+			insert into ref_attribute values (nextval('ref_attribute_attributeid_seq'),'BUYBACKIMAGEURL','Url For buyback Banner image',(select userid from fs_user where username='fs_rjivan'),'API',now(),null,null);
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="9.19.42" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_program_gen_attribute where discriminator='GEN_ATTRIBUTES' and attributeid=(select attributeid from ref_attribute where name='BUYBACKIMAGEURL');
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for PRECOMPLETE QUESTIONS</comment>
+		<sql>     
+    		<![CDATA[  
+			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator)
+ 				VALUES ((select labelid from ref_label where code='DEMO_DESCRIPTION'),(select programid from ref_program where programname='ATT') ,'/asset/image/att-buyback-program.png',(SELECT attributeid FROM ref_attribute WHERE name = 'BUYBACKIMAGEURL'),'GEN_ATTRIBUTESs');
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="10.0.12.944" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="1">
+				select count(*) from
+				ref_label where code='QUESTIONS_BULLETS';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_attribute for PRECOMPLETE QUESTIONS</comment>
+		<sql>     
+    		<![CDATA[  
+			update ref_label set value ='Status of my Buyback submission###Questions about an AT&T promotion###Request shipping materials###Void my Buyback###General information on the AT & T Buyback Program###My device is not listed###Request my Buyback receipt###Questions about my promotion card###Other'
+            where code='QUESTIONS_BULLETS'	
+            ]]>
+		</sql>
+	</changeSet>
+	<changeSet id="10.0.13" author="rverma" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="2">
+				select count(*) from ref_program_gen_attribute where attributeid  in (select attributeid from ref_attribute  where name in ('BUYBACKIMAGEURL','DEVICEWORTHIMAGEURL'));
+			</sqlCheck>
+		</preConditions>
+		<comment>Updated image url with dist prefix code</comment>
+		<sql>     
+    		<![CDATA[  
+			update ref_program_gen_attribute set value = '/images/479e2dda.att-buyback-program.png' where attributeid=(select attributeid from ref_attribute  where name='BUYBACKIMAGEURL');
+            update ref_program_gen_attribute set value = '/images/81438974.device-worth.png' where attributeid=(select attributeid from ref_attribute  where name='DEVICEWORTHIMAGEURL');
+            ]]>
+		</sql>
+	</changeSet>
+	
+	<changeSet id="10.0.14.1" author="mkamboj" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_program_gen_attribute where discriminator='TRADE_OPTIONS' and attributeid = (SELECT attributeid FROM ref_attribute WHERE name ='TRADE_COMPLETE') and value='EMAIL_SEND';
+			</sqlCheck>
+		</preConditions>
+		<comment> Insert new ref_program_gen_attribute for TRADE_COMPLETE or SEND_EMAIL</comment>
+		<sql>     
+    		<![CDATA[
+			delete from ref_program_gen_attribute where discriminator='TRADE_OPTIONS' and attributeid = (SELECT attributeid FROM ref_attribute WHERE name ='TRADE_COMPLETE') and value='EMAIL_SEND';  
+			
+ 			INSERT INTO ref_program_gen_attribute(description, programid, value, attributeid, discriminator,sortorder,ismandatory,ishidden)
+ 				VALUES ((select labelid from ref_label where value='DEMO DESCRIPTION' and applocaleid = (select localeid from ref_locale where localecode='en_US')),(select programid from ref_program  where programname='ATT') , add_ref_label('TRADE','en_US','EMAIL_SEND','A copy of the quote has been emailed to'),(SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_COMPLETE'),'TRADE_OPTIONS' ,(select COALESCE(max(sortorder)+10,10) from ref_program_gen_attribute where discriminator='TRADE_OPTIONS' and attributeid = (SELECT attributeid FROM ref_attribute WHERE name = 'TRADE_COMPLETE')), 'true','false');
+			]]>
+		</sql>
+	</changeSet>
+	<changeSet id="10.0.15" author="akaur" runOnChange="false">
+		<preConditions onFail="MARK_RAN">
+			<sqlCheck expectedResult="0">
+				select count(*) from ref_label where  code='SUBMIT_BUTTON';
+			</sqlCheck>
+		</preConditions>
+		<comment>Insert Submit Button Text in ref_labeel</comment>
+		<sql>     
+		   	<![CDATA[  
+				insert into ref_label (applocaleid,value,updatedby,updateddate,createdby,createddate,code) values ((select al.applocaleid from ref_application_locale al join ref_application app on al.applicationid= app.applicationid join ref_locale loc on al.localeid= loc.localeid where app.name= 'UPLOAD_PRIORITY' and loc.localecode= 'en_US'),'Submit',null,null,1,now(),'SUBMIT_BUTTON');
+			]]>
+		</sql>
+	</changeSet>	
+	<changeSet id="10.0.16" author="rverma" runOnChange="false">
+        <comment>Update email to address to donot-reply@atttradein.flipswap.com</comment>
+        <sql>     
+            <![CDATA[  
+                select add_ref_label('TRADE','en_US','HEADER_EMAILTO','donot-reply@atttradein.flipswap.com')
+            ]]>
+        </sql>
+    </changeSet> 
+    <changeSet id="10.0.17.1" author="prasingh" runOnChange="false">
+        <comment>CDEV-950: Updating label</comment>
+        <sql>     
+            <![CDATA[  
+                select add_ref_label('TRADE','en_US','QUESTIONS_HEADING','Submit a question or request information (check your topic below)');
+            ]]>
+        </sql>
+    </changeSet> 
+    <changeSet id="10.0.18" author="bbansal" runOnChange="false">
+        <comment>CDEV-954: Ability to turn on/off email service</comment>
+        <sql>     
+            <![CDATA[  
+                select add_ref_label('TRADE','en_US','SEND_EMAIL','false');
+            ]]>
+        </sql>
+    </changeSet>    
+</databaseChangeLog>

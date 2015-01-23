@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ProgramCategoryServiceTestSuit" parallel="true">
+
+	<test name="findByProgramCategory(programIdIs3)" preserve-order="false">
+		<parameter name="programId" value="3" />
+		<parameter name="prioritizationCategory" value="CELLPHONE" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ProgramCategoryServiceTest">
+				<methods>
+					<include name="findByProgramCategory" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findByProgramCategory(programIdIs2)" preserve-order="false">
+		<parameter name="programId" value="2" />
+		<parameter name="prioritizationCategory" value="CELLPHONE" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ProgramCategoryServiceTest">
+				<methods>
+					<include name="findByProgramCategory" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

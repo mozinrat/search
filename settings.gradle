@@ -1,0 +1,2 @@
+
+include "ce-search-dao", "ce-search-ui", "ce-search-common"

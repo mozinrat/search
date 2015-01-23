@@ -1,0 +1,80 @@
+import org.apache.tools.ant.filters.ReplaceTokens;
+
+ext {
+	   environment = System.getProperty('env') == null ? 'dev' : System.getProperty('env')    
+       databaseContext = System.getProperty('databaseContext') == null ? 'devl' : System.getProperty('databaseContext')
+       
+       props = new Properties()
+       def propFile = file("src/main/filters/${environment}.deploy.properties")
+       props.load(new FileInputStream(propFile))
+       props.putAll(System.properties)
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+	apply plugin: 'jacoco'
+	apply plugin: 'sonar-runner'
+
+	version = '1.0'
+	
+	ext {    
+       springVersion = "4.1.1.RELEASE"
+       slf4jVersion  = "1.7.5"
+       servletApiVersion = "3.0.1"
+       springSecurityVersion = "3.2.0.RELEASE"
+       aspectjVersion = "1.7.2"
+       liquibaseVersion = "2.0.3"
+       postgresqlVersion = "9.2-1003-jdbc4"
+	}
+
+    repositories {
+       mavenCentral()
+	    maven { 
+	        url "http://repo.jfrog.org/artifactory/third-party-releases-local"
+	    }
+    }
+
+	sonarRunner {
+    	sonarProperties {
+            property "sonar.host.url", "http://sonar.hylatest.com/"
+            property "sonar.login", "core-build"
+            property "sonar.password", "Password1"
+ 
+            property "sonar.jdbc.url", "jdbc:postgresql://dev.erecyclingcorps.com:5432/sonar"
+			property "sonar.jdbc.driverClassName", "org.postgresql.Driver"
+            property "sonar.jdbc.username", "rjivan"
+            property "sonar.jdbc.password", "Flip1"
+			property "sonar.sourceEncoding", "UTF-8"
+			property "sonar.core.codeCoveragePlugin", "jacoco"
+			property "sonar.exclusions", "**/migration/**,  **/*Test.java, **/bean/**, **/config/**, **/domain/**,**/enums/**, **/dto/**, **/*.properties, **/*.xml"
+    	}
+	}
+	
+	jacoco {
+	    toolVersion = "0.7.2.201409121644"
+	    reportsDir = file("$buildDir/customJacocoReportDir")
+	}
+	
+	jacocoTestReport {
+	    group = "CE-Search"
+	    description = "Generate Jacoco coverage reports after running tests."
+	    reports {
+	        xml.enabled false
+	        csv.enabled false
+	        html.destination "${buildDir}/jacocoHtml"
+	    }
+	}
+	
+	test {
+		systemProperties 'property': 'value'
+		useTestNG(){
+			suites 'src/test/resources/testng.xml'
+		}
+	    jacoco {
+			append = true
+	        destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
+	        classDumpFile = file("$buildDir/jacoco/classpathdumps")
+	    }
+	}
+}

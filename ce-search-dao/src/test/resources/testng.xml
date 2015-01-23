@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="CE_SEARCH_DAO" parallel="none">
+	<parameter name="userName" value="fs_rjivan" />
+	<suite-files>
+		<suite-file path="services/ApiServiceSuit.xml" />
+		<suite-file path="services/AttributeServiceSuit.xml" />
+		<suite-file path="services/ModelAttributeServiceSuit.xml" />
+		<suite-file path="services/ModelServiceSuit.xml" />
+		<suite-file path="services/PrioritizationTypeServiceSuit.xml" />
+		<suite-file path="services/PrioritizationUploadServiceSuit.xml" />
+		<suite-file path="services/ProgramCategoryServiceSuit.xml" />
+		<suite-file path="services/ProgramServiceSuit.xml" />
+		<suite-file path="services/SendEmailServiceSuit.xml" />
+		<suite-file path="services/TradeOptionsServiceSuit.xml" />
+		<suite-file path="services/UserServiceSuit.xml" />
+	</suite-files>
+</suite>

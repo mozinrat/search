@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SendEmailServiceTestSuit" parallel="true">
+
+	<test name="sendEmailTest()" preserve-order="false">
+		<parameter name="senderAddress" value="rverma@qasource.com" />
+		<parameter name="recipientAddress" value="rverma@qasource.com" />
+		<parameter name="subject" value="test14 subject" />
+		<parameter name="message" value="test" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.SendEmailServiceTest">
+				<methods>
+					<include name="sendEmailTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="getRetryMail()" preserve-order="false">
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.SendEmailServiceTest">
+				<methods>
+					<include name="getRetryMail" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="resendEmail()" preserve-order="false">
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.SendEmailServiceTest">
+				<methods>
+					<include name="resendEmail" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

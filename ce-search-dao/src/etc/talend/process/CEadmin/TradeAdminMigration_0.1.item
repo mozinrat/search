@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default">
+  <context confirmationNeeded="false" name="Default">
+    <contextParameter comment="" name="ceadmindb_Database" prompt="ceadmindb_Database?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="ceadmin"/>
+    <contextParameter comment="" name="ceadmindb_Login" prompt="ceadmindb_Login?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="postgres"/>
+    <contextParameter comment="" name="ceadmindb_Password" prompt="ceadmindb_Password?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="ceadmindb_Port" prompt="ceadmindb_Port?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="5432"/>
+    <contextParameter comment="" name="ceadmindb_Schema" prompt="ceadmindb_Schema?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value=""/>
+    <contextParameter comment="" name="ceadmindb_Server" prompt="ceadmindb_Server?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="cesearch_Database" prompt="cesearch_Database?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="consumerdb_dev"/>
+    <contextParameter comment="" name="cesearch_Login" prompt="cesearch_Login?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="postgres"/>
+    <contextParameter comment="" name="cesearch_Password" prompt="cesearch_Password?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="cesearch_Port" prompt="cesearch_Port?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="5432"/>
+    <contextParameter comment="" name="cesearch_Schema" prompt="cesearch_Schema?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value=""/>
+    <contextParameter comment="" name="cesearch_Server" prompt="cesearch_Server?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="categorystring" prompt="categorystring?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_String" value="1,3,11"/>
+    <contextParameter comment="" name="ce_dealercategoryid" prompt="ce_dealercategoryid?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="11"/>
+    <contextParameter comment="" name="cesearchbatchuser" prompt="cesearchbatchuser?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="1"/>
+    <contextParameter comment="" name="cew_dealercategoryid" prompt="cew_dealercategoryid?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="11"/>
+    <contextParameter comment="" name="jobdate" prompt="jobdate?" promptNeeded="true" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Date" value="2011-11-21 17:05:50"/>
+    <contextParameter comment="" name="programname" prompt="programname?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_String" value="ATT"/>
+  </context>
+  <context confirmationNeeded="false" name="flipswap">
+    <contextParameter comment="" name="ceadmindb_Database" prompt="ceadmindb_Database?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="ceadmin"/>
+    <contextParameter comment="" name="ceadmindb_Login" prompt="ceadmindb_Login?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="postgres"/>
+    <contextParameter comment="" name="ceadmindb_Password" prompt="ceadmindb_Password?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="ceadmindb_Port" prompt="ceadmindb_Port?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="5432"/>
+    <contextParameter comment="" name="ceadmindb_Schema" prompt="ceadmindb_Schema?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value=""/>
+    <contextParameter comment="" name="ceadmindb_Server" prompt="ceadmindb_Server?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="cesearch_Database" prompt="cesearch_Database?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="consumerdb_dev"/>
+    <contextParameter comment="" name="cesearch_Login" prompt="cesearch_Login?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="postgres"/>
+    <contextParameter comment="" name="cesearch_Password" prompt="cesearch_Password?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="cesearch_Port" prompt="cesearch_Port?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="5432"/>
+    <contextParameter comment="" name="cesearch_Schema" prompt="cesearch_Schema?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value=""/>
+    <contextParameter comment="" name="cesearch_Server" prompt="cesearch_Server?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="categorystring" prompt="categorystring?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_String" value="1,3,11"/>
+    <contextParameter comment="" name="ce_dealercategoryid" prompt="ce_dealercategoryid?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="11"/>
+    <contextParameter comment="" name="cesearchbatchuser" prompt="cesearchbatchuser?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="1"/>
+    <contextParameter comment="" name="cew_dealercategoryid" prompt="cew_dealercategoryid?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="11"/>
+    <contextParameter comment="" name="jobdate" prompt="jobdate?" promptNeeded="true" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Date" value="2011-11-21 17:05:50"/>
+    <contextParameter comment="" name="programname" prompt="programname?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_String" value="ATT"/>
+  </context>
+  <context confirmationNeeded="false" name="qa">
+    <contextParameter comment="" name="ceadmindb_Database" prompt="ceadmindb_Database?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="ceadmin"/>
+    <contextParameter comment="" name="ceadmindb_Login" prompt="ceadmindb_Login?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="postgres"/>
+    <contextParameter comment="" name="ceadmindb_Password" prompt="ceadmindb_Password?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="ceadmindb_Port" prompt="ceadmindb_Port?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="5432"/>
+    <contextParameter comment="" name="ceadmindb_Schema" prompt="ceadmindb_Schema?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value=""/>
+    <contextParameter comment="" name="ceadmindb_Server" prompt="ceadmindb_Server?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="cesearch_Database" prompt="cesearch_Database?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="cesearch"/>
+    <contextParameter comment="" name="cesearch_Login" prompt="cesearch_Login?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="postgres"/>
+    <contextParameter comment="" name="cesearch_Password" prompt="cesearch_Password?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="cesearch_Port" prompt="cesearch_Port?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="5432"/>
+    <contextParameter comment="" name="cesearch_Schema" prompt="cesearch_Schema?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value=""/>
+    <contextParameter comment="" name="cesearch_Server" prompt="cesearch_Server?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="categorystring" prompt="categorystring?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_String" value="1,3,11"/>
+    <contextParameter comment="" name="ce_dealercategoryid" prompt="ce_dealercategoryid?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="11"/>
+    <contextParameter comment="" name="cesearchbatchuser" prompt="cesearchbatchuser?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value=""/>
+    <contextParameter comment="" name="cew_dealercategoryid" prompt="cew_dealercategoryid?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="11"/>
+    <contextParameter comment="" name="jobdate" prompt="jobdate?" promptNeeded="true" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Date" value="2011-11-21 17:06:14"/>
+    <contextParameter comment="" name="programname" prompt="programname?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_String" value="ATT"/>
+  </context>
+  <context confirmationNeeded="false" name="qa">
+    <contextParameter comment="" name="ceadmindb_Database" prompt="ceadmindb_Database?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="ceadmin"/>
+    <contextParameter comment="" name="ceadmindb_Login" prompt="ceadmindb_Login?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="postgres"/>
+    <contextParameter comment="" name="ceadmindb_Password" prompt="ceadmindb_Password?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="ceadmindb_Port" prompt="ceadmindb_Port?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="5432"/>
+    <contextParameter comment="" name="ceadmindb_Schema" prompt="ceadmindb_Schema?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value=""/>
+    <contextParameter comment="" name="ceadmindb_Server" prompt="ceadmindb_Server?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="cesearch_Database" prompt="cesearch_Database?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="cesearch"/>
+    <contextParameter comment="" name="cesearch_Login" prompt="cesearch_Login?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="postgres"/>
+    <contextParameter comment="" name="cesearch_Password" prompt="cesearch_Password?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="cesearch_Port" prompt="cesearch_Port?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="5432"/>
+    <contextParameter comment="" name="cesearch_Schema" prompt="cesearch_Schema?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value=""/>
+    <contextParameter comment="" name="cesearch_Server" prompt="cesearch_Server?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="categorystring" prompt="categorystring?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_String" value="1,3,11"/>
+    <contextParameter comment="" name="ce_dealercategoryid" prompt="ce_dealercategoryid?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="11"/>
+    <contextParameter comment="" name="cesearchbatchuser" prompt="cesearchbatchuser?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value=""/>
+    <contextParameter comment="" name="cew_dealercategoryid" prompt="cew_dealercategoryid?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="11"/>
+    <contextParameter comment="" name="jobdate" prompt="jobdate?" promptNeeded="true" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Date" value="2011-11-21 17:06:14"/>
+    <contextParameter comment="" name="programname" prompt="programname?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_String" value="ATT"/>
+  </context>
+  <context confirmationNeeded="false" name="localserver">
+    <contextParameter comment="" name="ceadmindb_Database" prompt="ceadmindb_Database?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="ceadmin"/>
+    <contextParameter comment="" name="ceadmindb_Login" prompt="ceadmindb_Login?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="postgres"/>
+    <contextParameter comment="" name="ceadmindb_Password" prompt="ceadmindb_Password?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="ceadmindb_Port" prompt="ceadmindb_Port?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="5432"/>
+    <contextParameter comment="" name="ceadmindb_Schema" prompt="ceadmindb_Schema?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value=""/>
+    <contextParameter comment="" name="ceadmindb_Server" prompt="ceadmindb_Server?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="cesearch_Database" prompt="cesearch_Database?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="consumerdb_dev"/>
+    <contextParameter comment="" name="cesearch_Login" prompt="cesearch_Login?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="postgres"/>
+    <contextParameter comment="" name="cesearch_Password" prompt="cesearch_Password?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="cesearch_Port" prompt="cesearch_Port?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="5432"/>
+    <contextParameter comment="" name="cesearch_Schema" prompt="cesearch_Schema?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value=""/>
+    <contextParameter comment="" name="cesearch_Server" prompt="cesearch_Server?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="categorystring" prompt="categorystring?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_String" value="1,3,11"/>
+    <contextParameter comment="" name="ce_dealercategoryid" prompt="ce_dealercategoryid?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="11"/>
+    <contextParameter comment="" name="cesearchbatchuser" prompt="cesearchbatchuser?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="1"/>
+    <contextParameter comment="" name="cew_dealercategoryid" prompt="cew_dealercategoryid?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="11"/>
+    <contextParameter comment="" name="jobdate" prompt="jobdate?" promptNeeded="true" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Date" value="2011-11-21 17:05:50"/>
+    <contextParameter comment="" name="programname" prompt="programname?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_String" value="ATT"/>
+  </context>
+  <context confirmationNeeded="false" name="local_server">
+    <contextParameter comment="" name="ceadmindb_Database" prompt="ceadmindb_Database?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="ceadmin"/>
+    <contextParameter comment="" name="ceadmindb_Login" prompt="ceadmindb_Login?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="postgres"/>
+    <contextParameter comment="" name="ceadmindb_Password" prompt="ceadmindb_Password?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="ceadmindb_Port" prompt="ceadmindb_Port?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="5432"/>
+    <contextParameter comment="" name="ceadmindb_Schema" prompt="ceadmindb_Schema?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value=""/>
+    <contextParameter comment="" name="ceadmindb_Server" prompt="ceadmindb_Server?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="cesearch_Database" prompt="cesearch_Database?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="consumerdb_dev"/>
+    <contextParameter comment="" name="cesearch_Login" prompt="cesearch_Login?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="postgres"/>
+    <contextParameter comment="" name="cesearch_Password" prompt="cesearch_Password?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="cesearch_Port" prompt="cesearch_Port?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="5432"/>
+    <contextParameter comment="" name="cesearch_Schema" prompt="cesearch_Schema?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value=""/>
+    <contextParameter comment="" name="cesearch_Server" prompt="cesearch_Server?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="categorystring" prompt="categorystring?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_String" value="1,3,11"/>
+    <contextParameter comment="" name="ce_dealercategoryid" prompt="ce_dealercategoryid?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="11"/>
+    <contextParameter comment="" name="cesearchbatchuser" prompt="cesearchbatchuser?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="1"/>
+    <contextParameter comment="" name="cew_dealercategoryid" prompt="cew_dealercategoryid?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="11"/>
+    <contextParameter comment="" name="jobdate" prompt="jobdate?" promptNeeded="true" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Date" value="2011-11-21 17:05:50"/>
+    <contextParameter comment="" name="programname" prompt="programname?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_String" value="ATT"/>
+  </context>
+  <context confirmationNeeded="false" name="UAT">
+    <contextParameter comment="" name="ceadmindb_Database" prompt="ceadmindb_Database?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="ceadmin"/>
+    <contextParameter comment="" name="ceadmindb_Login" prompt="ceadmindb_Login?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="postgres"/>
+    <contextParameter comment="" name="ceadmindb_Password" prompt="ceadmindb_Password?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="ceadmindb_Port" prompt="ceadmindb_Port?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="5432"/>
+    <contextParameter comment="" name="ceadmindb_Schema" prompt="ceadmindb_Schema?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value=""/>
+    <contextParameter comment="" name="ceadmindb_Server" prompt="ceadmindb_Server?" promptNeeded="false" repositoryContextId="_lTI5kG5gEeSqaP8n9Dzl4w" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="cesearch_Database" prompt="cesearch_Database?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="cesearch"/>
+    <contextParameter comment="" name="cesearch_Login" prompt="cesearch_Login?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="postgres"/>
+    <contextParameter comment="" name="cesearch_Password" prompt="cesearch_Password?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_Password" value="5FvyVOOCh3t3yvR3OLFC4g=="/>
+    <contextParameter comment="" name="cesearch_Port" prompt="cesearch_Port?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="5432"/>
+    <contextParameter comment="" name="cesearch_Schema" prompt="cesearch_Schema?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value=""/>
+    <contextParameter comment="" name="cesearch_Server" prompt="cesearch_Server?" promptNeeded="false" repositoryContextId="_hKatgG5cEeSNqPWWLZau6g" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="categorystring" prompt="categorystring?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_String" value="1,3,11"/>
+    <contextParameter comment="" name="ce_dealercategoryid" prompt="ce_dealercategoryid?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="11"/>
+    <contextParameter comment="" name="cesearchbatchuser" prompt="cesearchbatchuser?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value=""/>
+    <contextParameter comment="" name="cew_dealercategoryid" prompt="cew_dealercategoryid?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Long" value="11"/>
+    <contextParameter comment="" name="jobdate" prompt="jobdate?" promptNeeded="true" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_Date" value="2011-11-21 17:06:21"/>
+    <contextParameter comment="" name="programname" prompt="programname?" promptNeeded="false" repositoryContextId="_9smlEG7fEeSqaP8n9Dzl4w" type="id_String" value="ATT"/>
+  </context>
+  <parameters>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="64"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="0"/>
+    <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value=""/>
+    <elementParameter field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" value="true"/>
+    <elementParameter field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" value="false"/>
+    <elementParameter field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
+    <elementParameter field="CHECK" name="IMPLICIT_TCONTEXTLOAD" value="false"/>
+    <elementParameter field="RADIO" name="FROM_FILE_FLAG_IMPLICIT_CONTEXT" value="false"/>
+    <elementParameter field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" value="false"/>
+    <elementParameter field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:PROPERTY_TYPE" value=""/>
+    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE_IMPLICIT_CONTEXT:REPOSITORY_PROPERTY_TYPE" value=""/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value=""/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value=""/>
+    <elementParameter field="TEXT" name="URL_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR_IMPLICIT_CONTEXT"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="HOST_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="PORT_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="DBNAME_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="0RMsyjmybrE="/>
+    <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="LOAD_NEW_VARIABLE" value="Warning"/>
+    <elementParameter field="CLOSED_LIST" name="NOT_LOAD_OLD_VARIABLE" value="Warning"/>
+    <elementParameter field="CHECK" name="PRINT_OPERATIONS" value="false"/>
+    <elementParameter field="CHECK" name="DISABLE_ERROR" value="false"/>
+    <elementParameter field="CHECK" name="DISABLE_WARNINGS" value="false"/>
+    <elementParameter field="CHECK" name="DISABLE_INFO" value="false"/>
+    <elementParameter field="CHECK" name="ON_STATCATCHER_FLAG" value="true"/>
+    <elementParameter field="CHECK" name="ON_LOGCATCHER_FLAG" value="true"/>
+    <elementParameter field="CHECK" name="ON_METERCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_CONSOLE_FLAG" value="true"/>
+    <elementParameter field="CHECK" name="ON_FILES_FLAG" value="false"/>
+    <elementParameter field="DIRECTORY" name="FILE_PATH" value="&quot;D:/Aarondev/installation/Talend/TOS_DI-Win32-r72978-V5.0.0/workspace/.metadata&quot;"/>
+    <elementParameter field="TEXT" name="FILENAME_STATS" value="&quot;stats_file.txt&quot;"/>
+    <elementParameter field="TEXT" name="FILENAME_LOGS" value="&quot;logs_file.txt&quot;"/>
+    <elementParameter field="TEXT" name="FILENAME_METTER" value="&quot;meter_file.txt&quot;"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="ISO-8859-15"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ON_DATABASE_FLAG" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE" value="tJDBCOutput"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_10"/>
+    <elementParameter field="TEXT" name="URL" value="&quot;&quot;"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="DATASOURCE" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE="/>
+    <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE_METER" value="&quot;&quot;"/>
+    <elementParameter field="CHECK" name="CATCH_RUNTIME_ERRORS" value="true"/>
+    <elementParameter field="CHECK" name="CATCH_USER_ERRORS" value="true"/>
+    <elementParameter field="CHECK" name="CATCH_USER_WARNING" value="true"/>
+    <elementParameter field="CHECK" name="CATCH_REALTIME_STATS" value="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_HEADERID" value=""/>
+    <elementParameter field="CHECK" name="HEADER_ENABLED" value="false"/>
+    <elementParameter field="TEXT" name="HEADER_LIBRARY" value=""/>
+    <elementParameter field="TEXT" name="HEADER_CODE" value=""/>
+    <elementParameter field="TEXT" name="HEADER_IMPORT" value=""/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_FOOTERID" value=""/>
+    <elementParameter field="CHECK" name="FOOTER_ENABLED" value="false"/>
+    <elementParameter field="TEXT" name="FOOTER_LIBRARY" value=""/>
+    <elementParameter field="TEXT" name="FOOTER_CODE" value=""/>
+    <elementParameter field="TEXT" name="FOOTER_IMPORT" value=""/>
+    <routinesParameter id="_N0DYMoecEeGWsdhFC7yyEw" name="DataOperation"/>
+    <routinesParameter id="_N0y_EIecEeGWsdhFC7yyEw" name="Mathematical"/>
+    <routinesParameter id="_N08wEIecEeGWsdhFC7yyEw" name="Numeric"/>
+    <routinesParameter id="_N08wFIecEeGWsdhFC7yyEw" name="Relational"/>
+    <routinesParameter id="_N08wGIecEeGWsdhFC7yyEw" name="StringHandling"/>
+    <routinesParameter id="_N08wHIecEeGWsdhFC7yyEw" name="TalendDataGenerator"/>
+    <routinesParameter id="_N1F6AYecEeGWsdhFC7yyEw" name="TalendDate"/>
+    <routinesParameter id="_N1PrAIecEeGWsdhFC7yyEw" name="TalendString"/>
+  </parameters>
+  <node componentName="tPostgresqlConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="0" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostgresqlConnection_1"/>
+    <elementParameter field="CHECK" name="TSTATCATCHER_STATS" value="true"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="D:\AaronDev\Utilites\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_Uh5t0G5cEeSNqPWWLZau6g"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="V9_X"/>
+    <elementParameter field="TEXT" name="HOST" value="context.cesearch_Server"/>
+    <elementParameter field="TEXT" name="TYPE" value="POSTGRESQL"/>
+    <elementParameter field="TEXT" name="PORT" value="context.cesearch_Port"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.cesearch_Database"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB" value="context.cesearch_Schema"/>
+    <elementParameter field="TEXT" name="USER" value="context.cesearch_Login"/>
+    <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kuedswl8xj8kCZ10mYwgQQKVhSt5i4VynOc="/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="USE_SHARED_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="SHARED_CONNECTION_NAME" value="&quot;trade_db_connection&quot;"/>
+    <elementParameter field="CHECK" name="AUTO_COMMIT" value="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="384" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_1"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="D:\AaronDev\Utilites\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
+    <elementParameter field="TEXT" name="CONTEXT_JOB" value=""/>
+    <elementParameter field="PROCESS_TYPE" name="PROCESS" value="TradePreModelMigration"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="__S7N4PzHEeGb-YvSioXNXg"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="flipswap"/>
+    <elementParameter field="TEXT" name="CONTEXT_NAME" value="Default"/>
+    <elementParameter field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_CHILD_ERROR" value="true"/>
+    <elementParameter field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="true"/>
+    <elementParameter field="TABLE" name="CONTEXTPARAMS"/>
+    <elementParameter field="CHECK" name="PROPAGATE_CHILD_RESULT" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_PARAMETER" value="false"/>
+    <elementParameter field="CHECK" name="TRANSMIT_ORIGINAL_CONTEXT" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="__PROCESS__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tRunJob_1"/>
+  </node>
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="3" offsetLabelY="4" posX="640" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_2"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="D:\AaronDev\Utilites\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
+    <elementParameter field="TEXT" name="CONTEXT_JOB" value=""/>
+    <elementParameter field="PROCESS_TYPE" name="PROCESS" value="TradeModelMigration"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="_dOd-MPcuEeGCu_7j9NYkBg"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="flipswap"/>
+    <elementParameter field="TEXT" name="CONTEXT_NAME" value="Default"/>
+    <elementParameter field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_CHILD_ERROR" value="true"/>
+    <elementParameter field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="true"/>
+    <elementParameter field="TABLE" name="CONTEXTPARAMS"/>
+    <elementParameter field="CHECK" name="PROPAGATE_CHILD_RESULT" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_PARAMETER" value="false"/>
+    <elementParameter field="CHECK" name="TRANSMIT_ORIGINAL_CONTEXT" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="__PROCESS__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tRunJob_2"/>
+  </node>
+  <node componentName="tPostgresqlCommit" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1152" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostgresqlCommit_1"/>
+    <elementParameter field="CHECK" name="TSTATCATCHER_STATS" value="true"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="D:\AaronDev\Utilites\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tPostgresqlConnection_1"/>
+    <elementParameter field="CHECK" name="CLOSE" value="true"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tPostgresqlCommit_1"/>
+  </node>
+  <node componentName="tPostgresqlRollback" componentVersion="0.102" offsetLabelX="50" offsetLabelY="37" posX="544" posY="384">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostgresqlRollback_1"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="D:\AaronDev\Utilites\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tPostgresqlConnection_1"/>
+    <elementParameter field="CHECK" name="CLOSE" value="true"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tPostgresqlRollback_1"/>
+  </node>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="192" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_1"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="D:\AaronDev\Utilites\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="System.out.println(&quot;\nMigration started for &quot;+ context.programname +&quot; trade-in program&quot;);"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJava_1"/>
+  </node>
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="896" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_3"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="D:\AaronDev\Utilites\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
+    <elementParameter field="TEXT" name="CONTEXT_JOB" value=""/>
+    <elementParameter field="PROCESS_TYPE" name="PROCESS" value="TradePostModelMigration"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="_uW0vEPkXEeGXrN8MyOrX_Q"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Default"/>
+    <elementParameter field="TEXT" name="CONTEXT_NAME" value="Default"/>
+    <elementParameter field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_CHILD_ERROR" value="true"/>
+    <elementParameter field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="true"/>
+    <elementParameter field="TABLE" name="CONTEXTPARAMS"/>
+    <elementParameter field="CHECK" name="PROPAGATE_CHILD_RESULT" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_PARAMETER" value="false"/>
+    <elementParameter field="CHECK" name="TRANSMIT_ORIGINAL_CONTEXT" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="TradePostModelMigration"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tRunJob_3"/>
+  </node>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tPostgresqlConnection_1" offsetLabelX="0" offsetLabelY="0" source="tPostgresqlConnection_1" target="tJava_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk1"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tRunJob_1" offsetLabelX="0" offsetLabelY="0" source="tRunJob_1" target="tRunJob_2">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk2"/>
+  </connection>
+  <connection connectorName="COMPONENT_ERROR" label="OnComponentError" lineStyle="5" metaname="tRunJob_1" offsetLabelX="0" offsetLabelY="0" source="tRunJob_1" target="tPostgresqlRollback_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentError1"/>
+  </connection>
+  <connection connectorName="COMPONENT_ERROR" label="OnComponentError" lineStyle="5" metaname="tRunJob_2" offsetLabelX="0" offsetLabelY="0" source="tRunJob_2" target="tPostgresqlRollback_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentError2"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tRunJob_2" offsetLabelX="0" offsetLabelY="0" source="tRunJob_2" target="tRunJob_3">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk3"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tJava_1" offsetLabelX="0" offsetLabelY="0" source="tJava_1" target="tRunJob_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk5"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tRunJob_3" offsetLabelX="0" offsetLabelY="0" source="tRunJob_3" target="tPostgresqlCommit_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk6"/>
+  </connection>
+  <connection connectorName="SUBJOB_ERROR" label="OnSubjobError" lineStyle="4" metaname="tRunJob_3" offsetLabelX="0" offsetLabelY="0" source="tRunJob_3" target="tPostgresqlRollback_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobError1"/>
+  </connection>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostgresqlConnection_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_2"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostgresqlCommit_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostgresqlRollback_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_3"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+</talendfile:ProcessType>

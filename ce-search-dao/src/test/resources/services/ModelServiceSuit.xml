@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ModelServiceTestSuit" parallel="true">
+
+	<test name="getModelAttachmentTest(e63)/findModelTest(Nokia e63)" preserve-order="false">
+		<parameter name="searchText" value="Nokia e63" />
+		<parameter name="batchSize" value="10" />
+		<parameter name="startAt" value="0" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelServiceTest">
+				<methods>
+					<include name="findModelTest" />
+					<include name="getModelAttachmentTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="getModelAttachmentExceptionTest()" preserve-order="false">
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelServiceTest">
+				<methods>
+					<include name="getModelAttachmentExceptionTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="findModelTest(iphone 4)" preserve-order="false">
+		<parameter name="searchText" value="iphone 4" />
+		<parameter name="batchSize" value="10" />
+		<parameter name="startAt" value="0" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelServiceTest">
+				<methods>
+					<include name="findModelTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="findModelTest(iphone 5)" preserve-order="false">
+		<parameter name="searchText" value="iphone 5" />
+		<parameter name="batchSize" value="10" />
+		<parameter name="startAt" value="0" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelServiceTest">
+				<methods>
+					<include name="findModelTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="findModelTest(nokia)" preserve-order="false">
+		<parameter name="searchText" value="iphone 5" />
+		<parameter name="batchSize" value="10" />
+		<parameter name="startAt" value="0" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelServiceTest">
+				<methods>
+					<include name="findModelTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="findModelTest(apple)" preserve-order="false">
+		<parameter name="searchText" value="iphone 5" />
+		<parameter name="batchSize" value="10" />
+		<parameter name="startAt" value="0" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelServiceTest">
+				<methods>
+					<include name="findModelTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="findModelTest(e60)" preserve-order="false">
+		<parameter name="searchText" value="e60" />
+		<parameter name="batchSize" value="10" />
+		<parameter name="startAt" value="0" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelServiceTest">
+				<methods>
+					<include name="findModelTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="findModelTest(e63)" preserve-order="false">
+		<parameter name="searchText" value="e63" />
+		<parameter name="batchSize" value="10" />
+		<parameter name="startAt" value="0" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelServiceTest">
+				<methods>
+					<include name="findModelTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+	<test name="findTopRatedModel(ATT)" preserve-order="false">
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelServiceTest">
+				<methods>
+					<include name="findTopRatedModel" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="findTopRatedModel(TELUS)" preserve-order="false">
+		<parameter name="program" value="TELUS" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelServiceTest">
+				<methods>
+					<include name="findTopRatedModel" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+	<test name="findTopRatedModel(VERIZON)" preserve-order="false">
+		<parameter name="program" value="VERIZON" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelServiceTest">
+				<methods>
+					<include name="findTopRatedModel" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+</suite>

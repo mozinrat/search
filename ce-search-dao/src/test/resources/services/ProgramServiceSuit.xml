@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ProgramServiceTestSuit" parallel="true">
+
+	<test name="getAllProgramsTest()" preserve-order="false">
+		<classes>
+			<class name="com.erecyclingcorps.service.ProgramServiceTest">
+				<methods>
+					<include name="getAllProgramsTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findCurrentUserProgram()" preserve-order="false">
+		<parameter name="user" value="fs_rjivan" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ProgramServiceTest">
+				<methods>
+					<include name="findCurrentUserProgram" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

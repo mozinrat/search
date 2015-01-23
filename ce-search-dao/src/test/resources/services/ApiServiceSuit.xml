@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ApiServiceTestSuit" parallel="true">
+	<test name="findAllAttributeByProgramInput()" preserve-order="false">
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ApiServiceTest">
+				<methods>
+					<include name="getAPIData" />
+					<include name="getBannerData" />
+					<include name="getContactUsDetails" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

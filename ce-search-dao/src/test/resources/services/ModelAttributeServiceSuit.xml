@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ModelAttributeServiceTestSuit" parallel="true">
+
+	
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsPRODUCT)" preserve-order="false">
+		<parameter name="resourcetype" value="PRODUCT" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsMANUFACTURER)" preserve-order="false">
+		<parameter name="resourcetype" value="MANUFACTURER" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsPRODUCTFAMILY)" preserve-order="false">
+		<parameter name="resourcetype" value="PRODUCTFAMILY" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsCARRIER)" preserve-order="false">
+		<parameter name="resourcetype" value="CARRIER" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsMANUFACTURERkeyIsPRODUCT)" preserve-order="false">
+		<parameter name="resourcetype" value="MANUFACTURER" />
+		<parameter name="key" value="PRODUCT" />
+		<parameter name="value" value="FEATUREPHONE" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsMANUFACTURERkeyIsCARRIER)" preserve-order="false">
+		<parameter name="resourcetype" value="MANUFACTURER" />
+		<parameter name="key" value="CARRIER" />
+		<parameter name="value" value="Sprint" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsMANUFACTURERkeyIsPRODUCTFAMILY)" preserve-order="false">
+		<parameter name="resourcetype" value="MANUFACTURER" />
+		<parameter name="key" value="PRODUCTFAMILY" />
+		<parameter name="value" value="iPhone 5s" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsPRODUCTkeyIsMANUFACTURER)" preserve-order="false">
+		<parameter name="resourcetype" value="PRODUCT" />
+		<parameter name="key" value="MANUFACTURER" />
+		<parameter name="value" value="APPLE" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsPRODUCTkeyIsCARRIER)" preserve-order="false">
+		<parameter name="resourcetype" value="PRODUCT" />
+		<parameter name="key" value="CARRIER" />
+		<parameter name="value" value="Sprint" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsPRODUCTkeyIsPRODUCTFAMILY)" preserve-order="false">
+		<parameter name="resourcetype" value="PRODUCT" />
+		<parameter name="key" value="PRODUCTFAMILY" />
+		<parameter name="value" value="Galaxy" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsCARRIERkeyIsMANUFACTURER)" preserve-order="false">
+		<parameter name="resourcetype" value="CARRIER" />
+		<parameter name="key" value="MANUFACTURER" />
+		<parameter name="value" value="APPLE" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsCARRIERkeyIsPRODUCT)" preserve-order="false">
+		<parameter name="resourcetype" value="CARRIER" />
+		<parameter name="key" value="PRODUCT" />
+		<parameter name="value" value="FEATUREPHONE" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsCARRIERkeyIsPRODUCTFAMILY)" preserve-order="false">
+		<parameter name="resourcetype" value="CARRIER" />
+		<parameter name="key" value="PRODUCTFAMILY" />
+		<parameter name="value" value="Galaxy" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsPRODUCTFAMILYkeyIsMANUFACTURER)" preserve-order="false">
+		<parameter name="resourcetype" value="PRODUCTFAMILY" />
+		<parameter name="key" value="MANUFACTURER" />
+		<parameter name="value" value="APPLE" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsPRODUCTFAMILYkeyIsPRODUCT)" preserve-order="false">
+		<parameter name="resourcetype" value="PRODUCTFAMILY" />
+		<parameter name="key" value="PRODUCT" />
+		<parameter name="value" value="FEATUREPHONE" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestPositive(resourcetypeIsPRODUCTFAMILYkeyIsCARRIER)" preserve-order="false">
+		<parameter name="resourcetype" value="PRODUCTFAMILY" />
+		<parameter name="key" value="CARRIER" />
+		<parameter name="value" value="Sprint" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestPositive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestNegative(resourcetypeIsPRODUCT)" preserve-order="false">
+		<parameter name="resourcetype" value="PRODUCT" />
+		<parameter name="program" value="ATTs" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestNegative" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestNegative(resourcetypeIsMANUFACTURER)" preserve-order="false">
+		<parameter name="resourcetype" value="MANUFACTURER" />
+		<parameter name="program" value="sATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestNegative" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestNegative(resourcetypeIsPRODUCTFAMILY)" preserve-order="false">
+		<parameter name="resourcetype" value="PRODUCTFAMILY" />
+		<parameter name="program" value="sATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestNegative" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestNegative(resourcetypeIsCARRIER)" preserve-order="false">
+		<parameter name="resourcetype" value="CARRIER" />
+		<parameter name="program" value="AAATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestNegative" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestNegative(resourcetypeIsMANUFACTURERkeyIsPRODUCTFAMILY)" preserve-order="false">
+		<parameter name="resourcetype" value="MANUFACTURER" />
+		<parameter name="key" value="PRODUCTFAMILY" />
+		<parameter name="value" value="FEATUREPHONE1" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestNegative" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestNegative(resourcetypeIsPRODUCTkeyIsMANUFACTURER)" preserve-order="false">
+		<parameter name="resourcetype" value="PRODUCT" />
+		<parameter name="key" value="MANUFACTURER" />
+		<parameter name="value" value="APPLE11" />
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestNegative" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestNegative(resourcetypeIsPRODUCTkeyIsCARRIER)" preserve-order="false">
+		<parameter name="resourcetype" value="PRODUCT" />
+		<parameter name="key" value="CARRIER" />
+		<parameter name="value" value="SOEM" />
+		<parameter name="program" value="ATT1" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestNegative" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findModelByModelNameTestNegative(resourcetypeIsPRODUCT1keyIsCARRIER)" preserve-order="false">
+		<parameter name="resourcetype" value="PRODUCT1" />
+		<parameter name="key" value="CARRIER" />
+		<parameter name="value" value="SOEM" />
+		<parameter name="program" value="ATT1" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="findModelByModelNameTestNegative" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="getSearchWidgets()" preserve-order="false">
+		<parameter name="program" value="ATT" />
+		<classes>
+			<class name="com.erecyclingcorps.service.ModelAttributeServiceTest">
+				<methods>
+					<include name="getSearchWidgets" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

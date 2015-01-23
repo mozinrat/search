@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AttributeServiceTestSuit" parallel="true">
+
+	<test name="findAttributeNameByMetaDataTest(attributeIdIs1)" preserve-order="false">
+		<parameter name="attributeId" value="1" />
+		<parameter name="programId" value="2" />
+		<parameter name="prioritizationCategory" value="CELLPHONE" />
+		<classes>
+			<class name="com.erecyclingcorps.service.AttributeServiceTest">
+				<methods>
+					<include name="findAttributeNameByMetaDataTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findAttributeNameByMetaDataTest(attributeIdIs2)" preserve-order="false">
+		<parameter name="attributeId" value="2" />
+		<parameter name="programId" value="3" />
+		<parameter name="prioritizationCategory" value="CELLPHONE" />
+		<classes>
+			<class name="com.erecyclingcorps.service.AttributeServiceTest">
+				<methods>
+					<include name="findAttributeNameByMetaDataTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findAttributeNameByMetaDataTest(attributeIdIs3)" preserve-order="false">
+		<parameter name="attributeId" value="3" />
+		<parameter name="programId" value="6" />
+		<parameter name="prioritizationCategory" value="CELLPHONE" />
+		<classes>
+			<class name="com.erecyclingcorps.service.AttributeServiceTest">
+				<methods>
+					<include name="findAttributeNameByMetaDataTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findAllAttributeByProgramTest(programIdIs1)" preserve-order="false">
+		<parameter name="programId" value="1" />
+		<classes>
+			<class name="com.erecyclingcorps.service.AttributeServiceTest">
+				<methods>
+					<include name="findAllAttributeByProgramTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findAllAttributeByProgramTest(programIdIs2)" preserve-order="false">
+		<parameter name="programId" value="2" />
+		<classes>
+			<class name="com.erecyclingcorps.service.AttributeServiceTest">
+				<methods>
+					<include name="findAllAttributeByProgramTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findAllAttributeByProgramTest(programIdIs3)" preserve-order="false">
+		<parameter name="programId" value="3" />
+		<classes>
+			<class name="com.erecyclingcorps.service.AttributeServiceTest">
+				<methods>
+					<include name="findAllAttributeByProgramTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findNameByPKTest(attributeIdIs1)" preserve-order="false">
+		<parameter name="attributeId" value="1" />
+		<classes>
+			<class name="com.erecyclingcorps.service.AttributeServiceTest">
+				<methods>
+					<include name="findNameByPKTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findNameByPKTest(attributeIdIs2)" preserve-order="false">
+		<parameter name="attributeId" value="2" />
+		<classes>
+			<class name="com.erecyclingcorps.service.AttributeServiceTest">
+				<methods>
+					<include name="findNameByPKTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="findNameByPKTest(attributeIdIs3)" preserve-order="false">
+		<parameter name="attributeId" value="3" />
+		<classes>
+			<class name="com.erecyclingcorps.service.AttributeServiceTest">
+				<methods>
+					<include name="findNameByPKTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

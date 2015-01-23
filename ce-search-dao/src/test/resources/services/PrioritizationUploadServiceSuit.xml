@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="PrioritizationUploadServiceTestSuit" parallel="true">
+
+	<test name="createValidateFile(modelPositive.csv)" preserve-order="false">
+		<parameter name="filename" value="modelPositive.csv" />
+		<classes>
+			<class name="com.erecyclingcorps.service.PrioritizationUploadServiceTest">
+				<methods>
+					<include name="createValidateFile" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="createValidateFile(modelNegative.csv)" preserve-order="false">
+		<parameter name="filename" value="modelNegative.csv" />
+		<classes>
+			<class name="com.erecyclingcorps.service.PrioritizationUploadServiceTest">
+				<methods>
+					<include name="createValidateFile" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = '1.7'
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'ce-search common Module', 'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile (
+  		'com.fasterxml.jackson.core:jackson-databind:2.3.0'
+  	)
+    testCompile (
+    	'org.testng:testng:6.8.7'
+    )
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
