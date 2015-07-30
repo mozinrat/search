@@ -3,7 +3,7 @@ import org.apache.tools.ant.filters.ReplaceTokens;
 ext {
 	   environment = System.getProperty('env') == null ? 'dev' : System.getProperty('env')    
        databaseContext = System.getProperty('databaseContext') == null ? 'devl' : System.getProperty('databaseContext')
-       
+       newrelickey='cccbf9a2dea533b4e6d6dfafc84df0fed99cceed'
        props = new Properties()
        def propFile = file("src/main/filters/${environment}.deploy.properties")
        props.load(new FileInputStream(propFile))
